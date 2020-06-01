@@ -1,2 +1,9 @@
 # FH-UmbrellaCorb
-SWT2 Gruppe "UmbrellaCorp"
+Repository für das Softwaretechnik-2 Praktikum an der FH-Dortmund.
+
+Aufgabe war es eine Reiseplattform zu schreiben, als technologie empfohlen wurden Java mit SpringBoot.
+## SWT2 Gruppe "UmbrellaCorp"
+- Jendrik S.
+- Felix S.
+- Niklas H.
+- Jannik S.
