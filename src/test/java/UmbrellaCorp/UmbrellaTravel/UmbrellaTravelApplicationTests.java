@@ -1,14 +1,13 @@
-package de.fhdo.swt.example.swtexampleapplication;
+package UmbrellaCorp.UmbrellaTravel;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SwtExampleApplicationTests {
+class UmbrellaTravelApplicationTests {
 
 	@Test
 	void contextLoads() {
-		
 	}
 
 }
