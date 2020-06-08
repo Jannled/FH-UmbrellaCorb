@@ -1,3 +1,21 @@
+header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-content: space-around;
+    list-style-type: none;
+    }
+nav ul li{
+    font-size: 2em;
+    font-style: italic;
+}
+
 body {
     text-align: center;
 }
@@ -10,7 +28,7 @@ body {
 
 .centered {
     margin: 0;
-    position: absolute;
+    position: relative;
     top: 50%;
     left: 50%;
     -ms-transform: translate(-50%, -50%);
