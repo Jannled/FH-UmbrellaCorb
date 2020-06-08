@@ -7,3 +7,5 @@ Aufgabe war es eine Reiseplattform zu schreiben, als technologie empfohlen wurde
 - Felix S.
 - Niklas H.
 - Jannik S.
+
+<img width="200" src="src/main/resources/public/images/UmbrellaTours.svg">
