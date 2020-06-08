@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RestController
 public class UberController 
 {
-	@RequestMapping("/")
+	/*@RequestMapping("/")
 	public String requestMethodName() {
 		return "<a href=\"login.html\">Bitte melden sie sich an</a>";
 		
-	}
+	}*/
 	
 }
