@@ -11,14 +11,15 @@ public class Unterkunft {
 	private float preis;
 	private List<Reise> reise;
 
-	public Unterkunft(String name, boolean barrierefrei, Short sterne, int betten, float preis) {
+	public Unterkunft(String name, boolean barrierefrei, Short sterne, int betten, float preis) 
+	{
 		this.name = name;
 		this.barrierefrei = barrierefrei;
 		this.sterne = sterne;
 		this.betten = betten;
 		this.preis = preis;
-		
 
+		reise = new LinkedList<Reise>();
 	}
 
 	public String getName() {
