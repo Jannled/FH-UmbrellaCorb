@@ -3,10 +3,11 @@ header {
     flex-direction: row;
     align-items: center;
 }
-
-nav{
+body{
     text-align: center;
 }
+
+
 
 nav ul {                        /*style im navigationsmenü */
     display: flex;
