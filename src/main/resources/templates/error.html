@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <title th:text="${status}">FATAL ERROR!</title>
     <style>
@@ -27,11 +27,11 @@
 </head>
 
 <body>
-    <div>
-        <figure>
-            <img src="src\main\resources\public\images\404.jpg" alt="Error-Bild">
-        </figure>
-   </div>
+
+    <figure>
+        <img src= "src\main\resources\public\images\404.jpg" alt="Error-Bild">
+    </figure>
+
     <div class="centered">
         <h1 th:text="${status}">FATAL ERROR!</h1>
         <h2 th:text="${error}">Not found</h2>
