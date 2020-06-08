@@ -30,6 +30,7 @@ nav ul {                        /*style im navigationsmenü */
     display: flex;
     justify-content: flex-start;
     font-style: italic;
+    font-size: 1.5em;
 }
 
 .centered h1 {
