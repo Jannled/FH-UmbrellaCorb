@@ -1,7 +1,11 @@
 header{
     display: flex;
     flex-direction: row;
-    align-items: center;
+    justify-content: flex-start;
+}
+header figure img{
+    width: 33%;
+    
 }
 
 nav ul {
