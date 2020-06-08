@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title th:text="${status}">FATAL ERROR!</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+
+    <header>
+        <figure>
+            <a class="logo" href="landing.html">
+                <img src="images/UmbrellaTours.png" alt="Umbrella-Logo">
+            </a>
+        </figure>
+        <h1 class="siteName">Profilseite</h1>
+    </header>
+    <nav>
+        <h2>Navigationsmenü</h2>
+        <ul>
+            <li><a class="navi" href="landing.html">Startseite</a></li>
+            <li><a class="navi" href="login.html">Einloggen</a></li>
+            <li><a class="navi" href="profil.html">Profilseite</a></li>
+        </ul>
+    </nav>
+    <h1>Placeholder</h1>
+    <!--Dynamisch Profilname-->
+    <div class="profil">
+
+        <ul>
+            <li><a class="profil-navi" href="urlaubsprofil.html">Urlaubsprofil</a></li>
+            <!--alte Reisen oder was auch immer wir da rein packen wollen-->
+            <li><a class="profil-navi" href="urlaubsprofil.html">Buchungen</a></li>
+            <!-- liste mit aktuellen Buchungen-->
+        </ul>
+
+        
+    </div>
+</body>
+
+</html>
