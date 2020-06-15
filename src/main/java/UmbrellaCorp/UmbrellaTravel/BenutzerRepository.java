@@ -2,7 +2,7 @@ package UmbrellaCorp.UmbrellaTravel;
 
 import org.springframework.data.repository.CrudRepository;
 
-public interface ReiseVerwaltung extends CrudRepository<Reise, Long>
+public interface BenutzerRepository extends CrudRepository<User, Long>
 {
-    
+	
 }
