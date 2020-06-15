@@ -50,3 +50,8 @@ body{
   #tabelle tr:nth-child(2n) {
     background-color: orchid;
   }
+
+  footer {
+    position: fixed;
+    bottom: 0px;
+}
