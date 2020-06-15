@@ -1,8 +1,6 @@
 package UmbrellaCorp.UmbrellaTravel;
 
 import java.sql.Date;
-import java.util.LinkedList;
-import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -24,6 +22,11 @@ public class Reise
 	@NotBlank(message = "Reieseende ist ein notwendiges Feld!")
 	private Date ende;
 	//private List<Reiseort> reiseziele;
+
+	public Reise()
+	{
+		this(new Date(0), new Date((new java.util.Date()).getTime()));
+	}
 
 	public Reise(Date beginn, Date ende)
 	{

@@ -20,6 +20,11 @@ public class User
 
 	private static int kundenCounter = 1000;
 
+	public User()
+	{
+		this("--Vorname--", "--Nachname--", "--Email--", "--Passwort--");
+	}
+
 	public User(String vorname, String nachname, String email, String passwort)
 	{
 		this.vorname = vorname;
