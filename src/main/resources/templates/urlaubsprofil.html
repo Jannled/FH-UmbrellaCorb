@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+
+<head>
+    <title>Urlaubsprofil</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+</head>
+
+<body>
+    <div th:switch="${reisen}">
+        <h2 th:case="null">No journeys yet!</h2>
+        <div th:case="*">
+            <h2>Reisen</h2>
+            <table id="tabelle">
+                <thead>
+                    <tr>
+                        <th>Ziel</th>
+                        <th>Von</th>
+                        <th>Bis</th>
+                        <!--<th>Löschen</th>-->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="journey : ${journeys}">
+                        <td th:text="${reise.Ziel}"></td>
+                        <td th:text="${reise.beginn}"></td>
+                        <td th:text="${reise.ende}"></td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</body>
+
+</html>
