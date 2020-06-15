@@ -9,15 +9,9 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
-<body id="errorpage">
-
-    <header>
-        <figure>
-            <a class="logo" href="index.html">
-                <img src="images/UmbrellaTours.png" alt="Umbrella-Logo">
-            </a>
-        </figure>
-        <h1 class="siteName">Schade</h1>
+<body>
+    <div id="errorpage">
+    <header th:insert="header :: myheader">
     </header>
 
     <nav class="navi" th:insert="nav :: mynav">
@@ -30,7 +24,7 @@
 
     <h1 th:text="${status}">FATAL ERROR!</h1>
     <h2 th:text="${error}">Not found</h2>
-
+    </div>
 
     <footer th:insert="footer :: myFooter">
     </footer>
