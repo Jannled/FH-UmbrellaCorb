@@ -11,9 +11,15 @@
 
 <body>
 
+    <div id="header">
+    <header th:insert="header :: myheader">
+    </header>
+    <h1 class="siteName">Urlaubsprofil</h1>
+    </div>
+    
     <nav class="navi" th:insert="nav :: mynav">
     </nav>
-    
+
     <div th:switch="${reisen}">
         <h2 th:case="null">No journeys yet!</h2>
         <div th:case="*">
@@ -39,6 +45,9 @@
         </div>
 
     </div>
+
+    <footer th:insert="footer :: myFooter">
+    </footer>
 </body>
 
 </html>

@@ -11,18 +11,18 @@
 
 <body>
 
-    <header>
-        <figure>
-            <a class="logo" href="/">
-                <img src="images/UmbrellaTours.png" alt="Umbrella-Logo">
-            </a>
-        </figure>
-        <h1 class="siteName">Wilkommen bei Umbrella Tours</h1>
-    </header>
+    <div id="header">
+        <header th:insert="header :: myheader">
+        </header>
+        <h1 class="siteName">Willkommen bei Umbrella-Tours</h1>
+    </div>
     
     <nav class="navi" th:insert="nav :: mynav">
     </nav>
-    
+
+    <footer th:insert="footer :: myFooter">
+    </footer>
+
 </body>
 
 </html>

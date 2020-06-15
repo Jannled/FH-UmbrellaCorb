@@ -11,18 +11,15 @@
 
 <body>
 
-    <header>
-        <figure>
-            <a class="logo" href="index.html">
-                <img src="images/UmbrellaTours.png" alt="Umbrella-Logo">
-            </a>
-        </figure>
-        <h1 class="siteName">Profilseite</h1>
+    <div id="header">
+    <header th:insert="header :: myheader">
     </header>
+    <h1 class="siteName">Profil</h1>
+    </div>
     
     <nav class="navi" th:insert="nav :: mynav">
     </nav>
-    
+
     <!--Dynamisch Profilname-->
     <div class="profil">
         <h1 th:text="${}"></h1>
@@ -32,9 +29,10 @@
             <li><a class="profil-navi" href="">Buchungen</a></li>
             <!-- liste mit aktuellen Buchungen-->
         </ul>
-
-
     </div>
+
+    <footer th:insert="footer :: myFooter">
+    </footer>
 </body>
 
 </html>
