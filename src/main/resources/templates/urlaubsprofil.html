@@ -10,6 +10,10 @@
 </head>
 
 <body>
+
+    <nav class="navi" th:insert="nav :: mynav">
+    </nav>
+    
     <div th:switch="${reisen}">
         <h2 th:case="null">No journeys yet!</h2>
         <div th:case="*">

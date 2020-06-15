@@ -19,14 +19,10 @@
         </figure>
         <h1 class="siteName">Profilseite</h1>
     </header>
-    <nav class="navi">
-        <h2>Navigationsmenü</h2>
-        <ul>
-            <li><a href="index.html">Startseite</a></li>
-            <li><a href="login.html">Einloggen</a></li>
-            <li><a href="profil.html">Profilseite</a></li>
-        </ul>
+    
+    <nav class="navi" th:insert="nav :: mynav">
     </nav>
+    
     <!--Dynamisch Profilname-->
     <div class="profil">
         <h1 th:text="${}"></h1>
