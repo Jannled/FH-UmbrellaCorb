@@ -17,4 +17,17 @@ public class UberController
 	{
 		return "profil";
 	}
+
+	@GetMapping("login.html")
+	public String loginGET()
+	{
+		return "login";
+	}
+
+	@GetMapping("registration.html")
+	public String registrationGET()
+	{
+		return "registration";
+	}
+	
 }
