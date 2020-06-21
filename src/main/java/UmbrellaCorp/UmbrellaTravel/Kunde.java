@@ -3,6 +3,11 @@ package UmbrellaCorp.UmbrellaTravel;
 public class Kunde extends User {
 	private boolean gesperrt;
 	
+	public Kunde() {
+		super("","","","");
+		this.gesperrt = false;
+	}
+	
 	public Kunde(String vorname, String nachname, String email, String passwort, boolean gesperrt) {
 		super(vorname, nachname, email, passwort);
 		this.gesperrt = gesperrt;
