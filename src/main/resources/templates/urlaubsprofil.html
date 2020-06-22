@@ -28,17 +28,18 @@
                 <thead>
                     <tr>
                         <th>Ziel</th>
+                        <th>Unterkunft</th>
                         <th>Von</th>
                         <th>Bis</th>
                         <!--<th>Löschen</th>-->
                     </tr>
                 </thead>
                 <tbody>
-                    <tr th:each="journey : ${journeys}">
-                        <td th:text="${reise.Ziel}"></td>
+                    <tr th:each="reise : ${reisen}">
+                        <td th:text="${reise.ort}"></td>
+                        <td th:text="${reise.unterkunft}"></td>
                         <td th:text="${reise.beginn}"></td>
-                        <td th:text="${reise.ende}"></td>
-
+                        <td th:text="${reise.ende}"></td>           
                     </tr>
                 </tbody>
             </table>

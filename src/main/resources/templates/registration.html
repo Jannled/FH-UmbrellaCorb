@@ -35,8 +35,13 @@
         </div>
       </fieldset>
 
+          <input name="email" id="email" type="text" th:field="${user}" />
+        </fieldset>
+      </div>
       <div><input type="submit" value="User anlegen" /></div>
     </form>
+
+    <p th:text="'email: ' + ${user}"></p>
 
     <footer th:insert="footer :: myFooter"></footer>
   </body>
