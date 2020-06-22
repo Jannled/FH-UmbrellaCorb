@@ -16,7 +16,30 @@
     <nav class="navi" th:insert="nav :: mynav"></nav>
 
     <main>
-      <p>Bitte Anmeldedaten eingeben...</p>
+      <form action="#" method="post">
+        <fieldset>
+          <legend>Bitte Anmeldedaten eingeben...</legend>
+          <div class="req">
+            <label for="email">Email</label>
+            <input
+              name="email"
+              id="email"
+              type="email"
+              th:field="${user.email}"
+            />
+          </div>
+          <div class="req">
+            <label for="passwort">Passwort</label>
+            <input
+              name="passwort"
+              id="password"
+              type="password"
+              th:field="${user.passwort}"
+            />
+          </div>
+        </fieldset>
+        <div><input type="submit" value="Einloggen" /></div>
+      </form>
       <p>Noch kein User? <a href="registration.html">Registrieren</a></p>
     </main>
 
