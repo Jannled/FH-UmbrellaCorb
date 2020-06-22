@@ -14,7 +14,7 @@
 		<h1 class="siteName">Einloggen</h1>
 	</div>
 
-    <main>
+    <!--<main>
       <form action="#" method="post">
         <fieldset>
           <legend>Bitte Anmeldedaten eingeben...</legend>
@@ -40,10 +40,10 @@
         <div><input type="submit" value="Einloggen" /></div>
       </form>
       <p>Noch kein User? <a href="registration.html">Registrieren</a></p>
-    </main>
+    </main>-->
 
 	<main>
-		<h1 th:text="'Hello ' + ${#httpServletRequest.remoteUser}">Willkommen, unbekannter Nutzer!</h1>
+		<h1 th:text="'Hallo ' + ${#httpServletRequest.remoteUser}">Willkommen, unbekannter Nutzer!</h1>
 		<p>Bitte Anmeldedaten eingeben...</p>
 		<p>Noch kein User? <a href="registration.html">Registrieren</a></p>
 
