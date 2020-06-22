@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 public class User 
@@ -12,10 +13,18 @@ public class User
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long ID;
 
+	@NotBlank(message = "Bitte geben Sie ihren Vorname an!")
 	private String vorname;
+
+	@NotBlank(message = "Bitte geben Sie ihren Nachnamen an!")
 	private String nachname;
+
 	private long kundennummer;
+
+	@NotBlank(message = "Bitte geben Sie eine gültige Email Adresse an!")
 	private String email;
+
+	@NotBlank(message = "Bitte geben Sie ein valides Passwort ein!")
 	private String passwort; //CLUDGE
 
 	private static int kundenCounter = 1000;

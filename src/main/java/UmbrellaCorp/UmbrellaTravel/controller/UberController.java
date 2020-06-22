@@ -4,6 +4,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import UmbrellaCorp.UmbrellaTravel.User;
+
 @Controller
 public class UberController 
 {
@@ -21,8 +23,9 @@ public class UberController
 	}
 
 	@GetMapping("login.html")
-	public String loginGET()
+	public String loginGET(User user, Model model)
 	{
+		model.addAttribute("user", new User());
 		return "login";
 	}
 
