@@ -1,31 +1,27 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <title>Einloggen</title>
-</head>
+  </head>
 
-<body>
-    
+  <body>
     <div id="header">
-        <header th:insert="header :: myheader">
-        </header>
-        <h1 class="siteName">Einloggen</h1>
+      <header th:insert="header :: myheader"></header>
+      <h1 class="siteName">Einloggen</h1>
     </div>
-    
+
+    <nav class="navi" th:insert="nav :: mynav"></nav>
+
     <main>
-        <p>Bitte Anmeldedaten eingeben...</p>
-        <p>Noch kein User? <a href="registration.html">Registrieren</a></p>
+      <p>Bitte Anmeldedaten eingeben...</p>
+      <p>Noch kein User? <a href="registration.html">Registrieren</a></p>
     </main>
-    
 
     <footer>
-        <div th:insert="footer :: myFooter"></div>
+      <div th:insert="footer :: myFooter"></div>
     </footer>
-
-</body>
-
+  </body>
 </html>

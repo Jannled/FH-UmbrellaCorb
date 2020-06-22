@@ -1,34 +1,30 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Registration</title>
-</head>
-
-<body>
-
-  <div id="header">
-  <header th:insert="header :: myheader">
-  </header>
-  <h1 class="siteName">User-Registration</h1>
-  </div>
-  
-  <form action="#" method="post">
-    <div>
-      <fieldset>
-        <legend>Userdaten erfassen</legend>
-        <label for="email">Email</label>
-        <input name="email" id="email" type="text" th:field="${user.email}" />
-      </fieldset>
+  <body>
+    <div id="header">
+      <header th:insert="header :: myheader"></header>
+      <h1 class="siteName">User-Registration</h1>
     </div>
-    <div><input type="submit" value="User anlegen" /></div>
-  </form>
 
-  <footer th:insert="footer :: myFooter">
-  </footer>
+    <nav class="navi" th:insert="nav :: mynav"></nav>
 
-</body>
+    <form action="#" method="post">
+      <div>
+        <fieldset>
+          <legend>Userdaten erfassen</legend>
+          <label for="email">Email</label>
+          <input name="email" id="email" type="text" th:field="${user.email}" />
+        </fieldset>
+      </div>
+      <div><input type="submit" value="User anlegen" /></div>
+    </form>
 
+    <footer th:insert="footer :: myFooter"></footer>
+  </body>
 </html>
