@@ -14,10 +14,10 @@ public class ReiseController
 	@Autowired
 	private ReiseRepository reiseRepository;
 
-	@GetMapping("/reisen")
+	@GetMapping("/urlaubsprofil")
 	public String reisenRequest(Reise reise, Model model) 
 	{
 		model.addAttribute("reisen", reiseRepository.findAll());
-		return "reise_buchen";
+		return "urlaubsprofil";
 	}
 }
