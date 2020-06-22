@@ -18,7 +18,7 @@ public class UberController
 	@GetMapping("profil.html")
 	public String profilGET(Model model)
 	{
-		
+		model.addAttribute("user", new User());
 		return "profil";
 	}
 
