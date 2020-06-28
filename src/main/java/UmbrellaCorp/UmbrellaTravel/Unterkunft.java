@@ -10,6 +10,14 @@ public class Unterkunft {
 	private int betten;
 	private float preis;
 	private List<Reise> reise;
+	
+	public Unterkunft() {
+		this.name = "name";
+		this.barrierefrei = false;
+		this.sterne = 0;
+		this.betten = 0;
+		this.preis = 0;
+	}
 
 	public Unterkunft(String name, boolean barrierefrei, Short sterne, int betten, float preis) 
 	{

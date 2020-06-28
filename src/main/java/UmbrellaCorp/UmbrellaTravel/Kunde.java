@@ -4,7 +4,7 @@ public class Kunde extends User {
 	private boolean gesperrt;
 	
 	public Kunde() {
-		super("","","","");
+		super("--Vorname--", "--Nachname--", "--Email--", "--Passwort--");
 		this.gesperrt = false;
 	}
 	
