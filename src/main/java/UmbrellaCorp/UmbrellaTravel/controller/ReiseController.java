@@ -14,8 +14,8 @@ import UmbrellaCorp.UmbrellaTravel.repository.ReiseRepository;
 @Controller
 public class ReiseController 
 {
-	//@Autowired
-	//private ReiseRepository reiseRepository;
+	@Autowired
+	private ReiseRepository reiseRepository;
 
 	@GetMapping("/urlaubsprofil")
 	public String reisenRequest(Reise reise, Model model, Principal principal) 
