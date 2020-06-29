@@ -9,11 +9,11 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    list-style-type: none;
 }
 
 #profil ul {
     font-size: larger;
+    list-style-type: none;
 }
 
 body {
@@ -41,19 +41,6 @@ body {
     /*li elemente style im navigationsmenü */
     font-size: 1.5em;
     font-style: italic;
-}
-
-.profil {
-    /*div element auf profilseite*/
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.profil-navi {
-    /*li elemente style im profilseite div */
-    font-style: italic;
-    font-size: 1.5em;
 }
 
 footer {
