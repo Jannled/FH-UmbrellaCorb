@@ -32,7 +32,7 @@ public class UberController
 	@GetMapping("registration.html")
 	public String registrationGET(Model model)
 	{
-		model.addAttribute("user", "diesisteintest@umbrellatours.com");
+		model.addAttribute("user", new User());
 		return "registration";
 	}
 	

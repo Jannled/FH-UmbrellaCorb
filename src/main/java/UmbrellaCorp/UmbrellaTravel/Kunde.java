@@ -1,7 +1,12 @@
 package UmbrellaCorp.UmbrellaTravel;
 
-public class Kunde extends User {
+import java.util.LinkedList;
+import java.util.List;
+
+public class Kunde extends User 
+{
 	private boolean gesperrt;
+	List<Reise> reisen = new LinkedList<Reise>();
 	
 	public Kunde() {
 		super("--Vorname--", "--Nachname--", "--Email--", "--Passwort--");
@@ -11,6 +16,7 @@ public class Kunde extends User {
 	public Kunde(String vorname, String nachname, String email, String passwort, boolean gesperrt) {
 		super(vorname, nachname, email, passwort);
 		this.gesperrt = gesperrt;
+		reisen.add(new Reise()); // CLUDGE
 	}
 	
 	public boolean getGesperrt() {
@@ -30,6 +36,11 @@ public class Kunde extends User {
 	}
 	
 	public void reiseBuchen(Reise r) {
-		
+		reisen.add(r);
+	}
+
+	public List<Reise> getReisen()
+	{
+		return reisen;
 	}
 }

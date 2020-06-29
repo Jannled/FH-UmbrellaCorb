@@ -26,6 +26,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter
 	@Override
 	public UserDetailsService userDetailsService() 
 	{
+		// CLUDGE
 		UserDetails admin1 = User.withDefaultPasswordEncoder().username("admin").password("MORE_POWER!").roles("ADMIN").build();
 		UserDetails user1 = User.withDefaultPasswordEncoder().username("user").password("password").roles("USER").build();
 		UserDetails user3 = User.withDefaultPasswordEncoder().username("umbrella").password("tours").roles("USER").build();
