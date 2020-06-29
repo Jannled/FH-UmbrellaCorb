@@ -39,19 +39,10 @@ body{
     align-items: flex-start;
 }
 .profil-navi {                  /*li elemente style im profilseite div */
-    display: flex;
-    justify-content: flex-start;
     font-style: italic;
     font-size: 1.5em;
 }
 
-
-#tabelle th {
-    background-color: orangered;
-  }
-  #tabelle tr:nth-child(2n) {
-    background-color: orchid;
-  }
 
   footer {
     position: fixed;
