@@ -1,3 +1,5 @@
+package UmbrellaCorp.UmbrellaTravel;
+
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class SpringWebMvcInitializer extends
