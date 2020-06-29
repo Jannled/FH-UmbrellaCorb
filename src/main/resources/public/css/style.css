@@ -20,6 +20,10 @@ body {
     background-color: sandybrown;
 }
 
+tr:hover {
+    background-color: grey;
+}
+
 #errorpage {
     text-align: center;
 }
@@ -52,11 +56,13 @@ footer {
     padding-left: 2px;
 }
 
-#tabelle{
+#tabelle {
     border-collapse: collapse;
     font-size: 1.5em;
 }
-#tabelle, th, td {
-    border: 1px solid black;
-  }
 
+#tabelle,
+th,
+td {
+    border: 1px solid black;
+}
