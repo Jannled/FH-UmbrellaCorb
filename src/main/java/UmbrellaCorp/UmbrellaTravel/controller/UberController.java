@@ -19,28 +19,39 @@ public class UberController
 	@GetMapping("index")
 	public String indexGET(Model model)
 	{
-		model.addAttribute("user", new User());
 		return "index";
 	}
 
 	@GetMapping("profil")
 	public String profilGET(Model model, Principal principal)
 	{
-		model.addAttribute("user", new User());
+		if(principal == null)
+			model.addAttribute("user", new User());
+		else
+			model.addAttribute("user", repoUser.findByEmail(principal.getName()).get(0));
+		
 		return "profil";
 	}
 
 	@GetMapping("login")
 	public String loginGET(Model model, Principal principal)
 	{
-		model.addAttribute("user", new User());
+		if(principal == null)
+			model.addAttribute("user", new User());
+		else
+			model.addAttribute("user", repoUser.findByEmail(principal.getName()).get(0));
+
 		return "login";
 	}
 
 	@GetMapping("registration")
 	public String registrationGET(Model model, Principal principal)
 	{
-		model.addAttribute("user", new User());
+		if(principal == null)
+			model.addAttribute("user", new User());
+		else
+			model.addAttribute("user", repoUser.findByEmail(principal.getName()).get(0));
+
 		return "registration";
 	}
 	

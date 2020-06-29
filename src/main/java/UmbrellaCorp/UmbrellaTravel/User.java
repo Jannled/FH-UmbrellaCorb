@@ -19,15 +19,11 @@ public class User
 	@NotBlank(message = "Bitte geben Sie ihren Nachnamen an!")
 	private String nachname;
 
-	private long kundennummer;
-
 	@NotBlank(message = "Bitte geben Sie eine gültige Email Adresse an!")
 	private String email;
 
 	@NotBlank(message = "Bitte geben Sie ein valides Passwort ein!")
 	private String passwort; //CLUDGE
-
-	private static int kundenCounter = 1000;
 
 	public User()
 	{
@@ -40,7 +36,6 @@ public class User
 		this.nachname = nachname;
 		this.email = email;
 		this.passwort = passwort;
-		this.kundennummer = kundenCounter++;
 	}
 
 	public boolean verifyPasswort(String passwort)
@@ -57,7 +52,7 @@ public class User
 	}
 
 	public long getKundennummer() {
-		return kundennummer;
+		return ID;
 	}
 
 	public String getEmail() {
