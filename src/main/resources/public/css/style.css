@@ -51,3 +51,12 @@ footer {
     left: 0px;
     padding-left: 2px;
 }
+
+#tabelle{
+    border-collapse: collapse;
+    font-size: 1.5em;
+}
+#tabelle, th, td {
+    border: 1px solid black;
+  }
+
