@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Buchung</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+    
+    <div id="header">
+        <header th:insert="header :: myheader">
+            <h1 class="siteName">Buchen</h1>
+        </header>
+
+        <nav class="navi" th:insert="nav :: mynav">
+        </nav>
+
+        <h2>Reisen</h2>
+            <table id="tabelle">
+                <thead>
+                    <tr>
+                        <th>Land</th>
+                        <th>Ziel</th>
+                        <th>Unterkunft</th>
+                        <th>Von</th>
+                        <th>Bis</th>
+                        <!--<th>Löschen</th>-->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Deutschland</td>
+                        <td>Soest</td>
+                        <td>Hanse Hotel</td>
+                        <td>30.06.2022</td>           
+                        <td>07.07.2022</td>   
+                        <td></td>        
+                    </tr>
+                    <tr>
+                        <td>Niederlande</td>
+                        <td>Soest</td>
+                        <td>Hotel Hotel</td>
+                        <td>12.07.2022</td>           
+                        <td>01.08.2022</td>   
+                        <td></td>        
+                    </tr>
+                    <tr>
+                        <td>Spanien</td>
+                        <td>Barcelona</td>
+                        <td>Hotel</td>
+                        <td>12.06.2021</td>           
+                        <td>19.06.2021</td>   
+                        <td></td>        
+                    </tr>
+
+                </tbody>
+            </table>
+
+        <footer th:insert="footer :: myFooter">
+        </footer>
+</body>
+
+</html>
