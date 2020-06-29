@@ -1,5 +1,7 @@
 package UmbrellaCorp.UmbrellaTravel;
 
+import javax.persistence.Entity;
+
 public class Reiseort 
 {
 	private String name;
