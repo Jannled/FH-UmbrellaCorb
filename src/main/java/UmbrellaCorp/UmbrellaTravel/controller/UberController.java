@@ -9,27 +9,27 @@ import UmbrellaCorp.UmbrellaTravel.User;
 @Controller
 public class UberController 
 {
-	@GetMapping("index.html")
+	@GetMapping("index")
 	public String indexGET()
 	{
 		return "index";
 	}
 
-	@GetMapping("profil.html")
+	@GetMapping("profil")
 	public String profilGET(Model model)
 	{
 		model.addAttribute("user", new User());
 		return "profil";
 	}
 
-	@GetMapping("login.html")
+	@GetMapping("login")
 	public String loginGET(User user, Model model)
 	{
 		model.addAttribute("user", new User());
 		return "login";
 	}
 
-	@GetMapping("registration.html")
+	@GetMapping("registration")
 	public String registrationGET(Model model)
 	{
 		model.addAttribute("user", new User());
