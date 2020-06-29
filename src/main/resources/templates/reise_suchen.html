@@ -10,58 +10,41 @@
 </head>
 
 <body>
-    
+
     <div id="header">
         <header th:insert="header :: myheader">
-            <h1 class="siteName">Buchen</h1>
         </header>
+        <h1 class="siteName">Buchen</h1>
+    </div>
+    <nav class="navi" th:insert="nav :: mynav">
+    </nav>
 
-        <nav class="navi" th:insert="nav :: mynav">
-        </nav>
+    <h2>Reisen</h2>
+    <table id="tabelle">
+        <thead>
+            <tr>
+                <th>Land</th>
+                <th>Ziel</th>
+                <th>Unterkunft</th>
+                <th>Von</th>
+                <th>Bis</th>
+                <th>Buchen</th>
+                <!--<th>Löschen</th>-->
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="reise : ${reisen}">
+                <td th:text="${reise.land}"></td>
+                <td th:text="${reise.ort}"></td>
+                <td th:text="${reise.unterkunft}"></td>
+                <td th:text="${reise.beginn}"></td>
+                <td th:text="${reise.ende}"></td>           
+            </tr>
+        </tbody>
+    </table>
 
-        <h2>Reisen</h2>
-            <table id="tabelle">
-                <thead>
-                    <tr>
-                        <th>Land</th>
-                        <th>Ziel</th>
-                        <th>Unterkunft</th>
-                        <th>Von</th>
-                        <th>Bis</th>
-                        <!--<th>Löschen</th>-->
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Deutschland</td>
-                        <td>Soest</td>
-                        <td>Hanse Hotel</td>
-                        <td>30.06.2022</td>           
-                        <td>07.07.2022</td>   
-                        <td></td>        
-                    </tr>
-                    <tr>
-                        <td>Niederlande</td>
-                        <td>Soest</td>
-                        <td>Hotel Hotel</td>
-                        <td>12.07.2022</td>           
-                        <td>01.08.2022</td>   
-                        <td></td>        
-                    </tr>
-                    <tr>
-                        <td>Spanien</td>
-                        <td>Barcelona</td>
-                        <td>Hotel</td>
-                        <td>12.06.2021</td>           
-                        <td>19.06.2021</td>   
-                        <td></td>        
-                    </tr>
-
-                </tbody>
-            </table>
-
-        <footer th:insert="footer :: myFooter">
-        </footer>
+    <footer th:insert="footer :: myFooter">
+    </footer>
 </body>
 
 </html>
