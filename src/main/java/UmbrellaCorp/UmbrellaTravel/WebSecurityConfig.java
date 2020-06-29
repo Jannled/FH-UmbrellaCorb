@@ -10,11 +10,13 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.stereotype.Component;
 
 import UmbrellaCorp.UmbrellaTravel.repository.BenutzerRepository;
 
 @Configuration
 @EnableWebSecurity
+@Component //TODO Benötigt?
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter 
 {
 	@Autowired

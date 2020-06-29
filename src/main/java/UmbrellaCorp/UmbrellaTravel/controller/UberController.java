@@ -14,7 +14,7 @@ import UmbrellaCorp.UmbrellaTravel.repository.BenutzerRepository;
 public class UberController 
 {
 	@Autowired
-	BenutzerRepository repoUser;
+	BenutzerRepository benutzerRepository;
 
 	@GetMapping("index")
 	public String indexGET(Model model)
@@ -28,7 +28,7 @@ public class UberController
 		if(principal == null)
 			model.addAttribute("user", new User());
 		else
-			model.addAttribute("user", repoUser.findByEmail(principal.getName()).get(0));
+			model.addAttribute("user", benutzerRepository.findByEmail(principal.getName()).get(0));
 		
 		return "profil";
 	}
@@ -39,7 +39,7 @@ public class UberController
 		if(principal == null)
 			model.addAttribute("user", new User());
 		else
-			model.addAttribute("user", repoUser.findByEmail(principal.getName()).get(0));
+			model.addAttribute("user", benutzerRepository.findByEmail(principal.getName()).get(0));
 
 		return "login";
 	}
@@ -50,7 +50,7 @@ public class UberController
 		if(principal == null)
 			model.addAttribute("user", new User());
 		else
-			model.addAttribute("user", repoUser.findByEmail(principal.getName()).get(0));
+			model.addAttribute("user", benutzerRepository.findByEmail(principal.getName()).get(0));
 
 		return "registration";
 	}
