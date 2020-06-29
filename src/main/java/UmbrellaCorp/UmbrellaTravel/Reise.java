@@ -21,7 +21,7 @@ public class Reise
 
 	@NotBlank(message = "Reieseende ist ein notwendiges Feld!")
 	private Date ende;
-	private Reiseort reiseziel;
+	//private Reiseort reiseziel;
 
 	public Reise()
 	{
