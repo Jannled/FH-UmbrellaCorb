@@ -12,17 +12,17 @@
 <body>
 
     <div id="header">
-    <header th:insert="header :: myheader">
-    </header>
-    <h1 class="siteName">Profil</h1>
+        <header th:insert="header :: myheader">
+        </header>
+        <h1 class="siteName">Profil</h1>
     </div>
-    
+
     <nav class="navi" th:insert="nav :: mynav">
     </nav>
 
     <!--Dynamisch Profilname-->
     <div class="profil">
-        <h1 th:text="${user.name}"></h1>
+        <h1 th:text="${user.email}"></h1>
         <ul>
             <li><a class="profil-navi" href="urlaubsprofil.html">Urlaubsprofil</a></li>
             <!-- liste mit aktuellen Buchungen-->
