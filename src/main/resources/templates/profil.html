@@ -21,14 +21,16 @@
     </nav>
 
     <!--Dynamisch Profilname-->
-    <div class="profil">
-        <h1 th:text="${user.email}"></h1>
+    <div id="profil">
+        <h2>Profildaten</h2>
         <ul>
-            <li><a class="profil-navi" href="urlaubsprofil.html">Urlaubsprofil</a></li>
-            <!-- liste mit aktuellen Buchungen-->
-            <li><a class="profil-navi" href="">Profil-Daten</a></li>
-            <!-- Daten zum Kunden(email, zahlungsart, etc)-->
+            <li th:text="${user.email}"></li>
+            <li th:text="${user.vorname}"></li>
+            <li th:text="${user.nachname}"></li>
+            <li th:text="${user.kundennummer}"></li>
         </ul>
+        <h2><a href="urlaubsprofil.html">Urlaubsprofil</a></h2>
+
     </div>
 
     <footer th:insert="footer :: myFooter">

@@ -1,44 +1,46 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Registration</title>
-  </head>
+</head>
 
-  <body>
+<body>
     <div id="header">
-      <header th:insert="header :: myheader"></header>
-      <h1 class="siteName">User-Registration</h1>
+        <header th:insert="header :: myheader"></header>
+        <h1 class="siteName">User-Registration</h1>
     </div>
 
     <nav class="navi" th:insert="nav :: mynav"></nav>
 
     <form action="#" method="post">
-      <fieldset>
-        <legend>Userdaten erfassen</legend>
-        <div class="req">
-          <label for="email">Email</label>
-          <input name="email" id="email" type="email" th:field="${user.email}" />
-        </div>
-        <div class="req">
-          <label for="vorname">Vorname</label>
-          <input name="vorname" id="vorname" type="text" th:field="${user.vorname}" />
-        </div>
-        <div class="req">
-          <label for="nachname">Nachname</label>
-          <input name="nachname" id="nachname" type="text" th:field="${user.nachname}" />
-        </div>
-        <div class="req">
-          <label for="passwort">Passwort</label>
-          <input name="passwort" id="passwort" type="password" th:field="${user.passwort}" />
-        </div>
-      </fieldset>
-      <div><input type="submit" value="User anlegen" /></div>
+        <fieldset>
+            <legend>Userdaten erfassen</legend>
+            <div class="req">
+                <label for="email">Email</label>
+                <input name="email" id="email" type="email" th:field="${user.email}" />
+            </div>
+            <div class="req">
+                <label for="vorname">Vorname</label>
+                <input name="vorname" id="vorname" type="text" th:field="${user.vorname}" />
+            </div>
+            <div class="req">
+                <label for="nachname">Nachname</label>
+                <input name="nachname" id="nachname" type="text" th:field="${user.nachname}" />
+            </div>
+            <div class="req">
+                <label for="passwort">Passwort</label>
+                <input name="passwort" id="passwort" type="password" th:field="${user.passwort}" />
+            </div>
+        </fieldset>
+        <div><input type="submit" value="User anlegen" /></div>
     </form>
 
     <p th:text="'email: ' + ${user}"></p>
 
     <footer th:insert="footer :: myFooter"></footer>
-  </body>
+</body>
+
 </html>
