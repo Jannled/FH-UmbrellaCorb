@@ -1,16 +1,26 @@
-
-
-#header{
+#header {
     display: flex;
     flex-direction: row;
     align-items: center;
 }
 
-body{
+#profil {
+    /*div element auf profilseite*/
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#profil ul {
+    font-size: larger;
+    list-style-type: none;
+}
+
+body {
     background-color: sandybrown;
 }
 
-#errorpage{
+#errorpage {
     text-align: center;
 }
 
@@ -18,9 +28,8 @@ body{
     text-align: center;
 }
 
-
-
-.navi ul {                        /*style im navigationsmenü */
+.navi ul {
+    /*style im navigationsmenü */
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -28,32 +37,13 @@ body{
     list-style-type: none;
 }
 
-.navi ul li {                         /*li elemente style im navigationsmenü */
+.navi ul li {
+    /*li elemente style im navigationsmenü */
     font-size: 1.5em;
-    font-style: italic; 
-}
-
-.profil {                       /*div element auf profilseite*/
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-.profil-navi {                  /*li elemente style im profilseite div */
-    display: flex;
-    justify-content: flex-start;
     font-style: italic;
-    font-size: 1.5em;
 }
 
-
-#tabelle th {
-    background-color: orangered;
-  }
-  #tabelle tr:nth-child(2n) {
-    background-color: orchid;
-  }
-
-  footer {
+footer {
     position: fixed;
     bottom: 0px;
     background-color: grey;

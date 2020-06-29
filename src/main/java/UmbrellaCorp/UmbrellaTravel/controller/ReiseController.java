@@ -7,7 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import UmbrellaCorp.UmbrellaTravel.Kunde;
 import UmbrellaCorp.UmbrellaTravel.Reise;
 import UmbrellaCorp.UmbrellaTravel.User;
 import UmbrellaCorp.UmbrellaTravel.repository.ReiseRepository;
@@ -18,7 +17,7 @@ public class ReiseController
 	@Autowired
 	private ReiseRepository reiseRepository;
 
-	@GetMapping("urlaubsprofil")
+	@GetMapping("/urlaubsprofil")
 	public String reisenRequest(Reise reise, Model model, Principal principal) 
 	{
 		System.out.println("Benutzer " + (principal != null ? principal.getName() : "--NULL--") + " hat die Seite aufgerufen!");
