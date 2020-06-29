@@ -63,4 +63,9 @@ public class User
 	public String getEmail() {
 		return email;
 	}
+
+	String getPasswort()
+	{
+		return passwort;
+	}
 }

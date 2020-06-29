@@ -21,7 +21,7 @@ public class ReiseController
 	@GetMapping("urlaubsprofil")
 	public String reisenRequest(Reise reise, Model model, Principal principal) 
 	{
-		//System.out.println("Benutzer " + principal.getName() + " hat die Seite aufgerufen!");
+		System.out.println("Benutzer " + (principal != null ? principal.getName() : "--NULL--") + " hat die Seite aufgerufen!");
 		model.addAttribute("reisen", new Kunde().getReisen());
 		model.addAttribute("user", new User());
 		return "urlaubsprofil";
