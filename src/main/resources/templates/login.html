@@ -2,19 +2,22 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="stylesheet" type="text/css" href="css/style.css" />
-	<title>Einloggen</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <title>Einloggen</title>
 </head>
 
 <body>
-	<div id="header">
-		<header th:insert="header :: myheader"></header>
-		<h1 class="siteName">Einloggen</h1>
-	</div>
+  <div id="header">
+    <header th:insert="header :: myheader"></header>
+    <h1 class="siteName">Einloggen</h1>
+  </div>
+  
+  <nav class="navi" th:insert="nav :: mynav">
+  </nav>
 
-    <!--<main>
+  <!--<main>
       <form action="#" method="post">
         <fieldset>
           <legend>Bitte Anmeldedaten eingeben...</legend>
@@ -42,8 +45,8 @@
       <p>Noch kein User? <a href="registration.html">Registrieren</a></p>
     </main>-->
 
-	<main>
-		<h1 th:text="'Hallo ' + ${#httpServletRequest.remoteUser}">Willkommen, unbekannter Nutzer!</h1>
+  <main>
+    <h1 th:text="'Hallo ' + ${#httpServletRequest.remoteUser}">Willkommen, unbekannter Nutzer!</h1>
 		<p>Bitte Anmeldedaten eingeben...</p>
 		<p>Noch kein User? <a href="registration.html">Registrieren</a></p>
 
