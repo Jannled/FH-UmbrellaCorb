@@ -9,6 +9,8 @@ import javax.persistence.OneToMany;
 @Entity
 public class Kunde extends User 
 {
+	private static final long serialVersionUID = 1L;
+
 	private boolean gesperrt;
 
 	@OneToMany(targetEntity = ReiseV2.class)
