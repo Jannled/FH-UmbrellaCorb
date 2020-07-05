@@ -56,4 +56,8 @@ public class Kunde extends User
 	public boolean isAccountNonLocked() {
 		return !gesperrt;
 	}
+
+	public long getKundennummer() {
+		return getID();
+	}
 }
