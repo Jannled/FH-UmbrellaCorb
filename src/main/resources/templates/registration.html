@@ -15,24 +15,24 @@
 
     <nav class="navi" th:insert="nav :: mynav"></nav>
 
-    <form action="#" method="post">
+    <form action="#" th:action="@{/registration}" th:object="${user}" method="post">
         <fieldset>
             <legend>Userdaten erfassen</legend>
             <div class="req">
                 <label for="email">Email</label>
-                <input name="email" id="email" type="email" th:field="${user.email}" />
+                <input name="email" id="email" type="email" th:field="*{email}" />
             </div>
             <div class="req">
                 <label for="vorname">Vorname</label>
-                <input name="vorname" id="vorname" type="text" th:field="${user.vorname}" />
+                <input name="vorname" id="vorname" type="text" th:field="*{vorname}" />
             </div>
             <div class="req">
                 <label for="nachname">Nachname</label>
-                <input name="nachname" id="nachname" type="text" th:field="${user.nachname}" />
+                <input name="nachname" id="nachname" type="text" th:field="*{nachname}" />
             </div>
             <div class="req">
                 <label for="passwort">Passwort</label>
-                <input name="passwort" id="passwort" type="password" th:field="${user.passwort}" />
+                <input name="passwort" id="passwort" type="password" th:field="*{passwort}" />
             </div>
         </fieldset>
         <div><input type="submit" value="User anlegen" /></div>

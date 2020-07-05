@@ -31,3 +31,6 @@ build/
 .vscode/
 /bin1/
 /bin/
+
+### Database ###
+*.db

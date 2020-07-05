@@ -1,14 +1,12 @@
 package UmbrellaCorp.UmbrellaTravel.repository;
 
-import java.util.List;
-
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import UmbrellaCorp.UmbrellaTravel.User;
+import UmbrellaCorp.UmbrellaTravel.Entity.User;
 
 @Repository
 public interface BenutzerRepository extends CrudRepository<User, Long>
 {
-	public List<User> findByEmail(String email);
+	public User findByEmail(String email);
 }

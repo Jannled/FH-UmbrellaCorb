@@ -3,6 +3,8 @@ package UmbrellaCorp.UmbrellaTravel;
 import java.util.LinkedList;
 import java.util.List;
 
+import UmbrellaCorp.UmbrellaTravel.Entity.Reise;
+
 public class Unterkunft {
 	private String name;
 	private boolean barrierefrei;

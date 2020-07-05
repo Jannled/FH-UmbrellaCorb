@@ -1,12 +1,18 @@
-package UmbrellaCorp.UmbrellaTravel;
+package UmbrellaCorp.UmbrellaTravel.Entity;
 
 import java.util.LinkedList;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+
+@Entity
 public class Kunde extends User 
 {
 	private boolean gesperrt;
-	List<Reise> reisen = new LinkedList<Reise>();
+
+	@OneToMany(targetEntity = ReiseV2.class)
+	List<ReiseV2> reisen = new LinkedList<ReiseV2>();
 	
 	public Kunde() {
 		super("--Vorname--", "--Nachname--", "--Email--", "--Passwort--");
@@ -16,7 +22,7 @@ public class Kunde extends User
 	public Kunde(String vorname, String nachname, String email, String passwort, boolean gesperrt) {
 		super(vorname, nachname, email, passwort);
 		this.gesperrt = gesperrt;
-		reisen.add(new Reise()); // CLUDGE
+		reisen.add(new ReiseV2()); // CLUDGE
 	}
 	
 	public boolean getGesperrt() {
@@ -35,12 +41,17 @@ public class Kunde extends User
 		
 	}
 	
-	public void reiseBuchen(Reise r) {
+	public void reiseBuchen(ReiseV2 r) {
 		reisen.add(r);
 	}
 
-	public List<Reise> getReisen()
+	public List<ReiseV2> getReisen()
 	{
 		return reisen;
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		return !gesperrt;
 	}
 }
