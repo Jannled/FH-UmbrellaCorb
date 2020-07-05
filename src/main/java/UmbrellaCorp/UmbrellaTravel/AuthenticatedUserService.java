@@ -6,6 +6,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import UmbrellaCorp.UmbrellaTravel.Entity.User;
 import UmbrellaCorp.UmbrellaTravel.repository.BenutzerRepository;
 
 @Service
@@ -15,9 +16,16 @@ public class AuthenticatedUserService implements UserDetailsService
     BenutzerRepository benutzerRepository;
 
     @Override
-    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        // TODO Auto-generated method stub
-        return null;
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException 
+    {
+        User user = benutzerRepository.findByEmail(email);
+        if(user != null)
+            return user;
+        else
+        {
+            System.out.println("Benutzer " + email + " existiert niet!");
+            throw new UsernameNotFoundException("Konnte den Benutzer mit Name " + email + " leider nicht finden...");
+        }
+            
     }
-    
 }

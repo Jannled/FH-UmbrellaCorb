@@ -13,6 +13,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import UmbrellaCorp.UmbrellaTravel.Entity.Kunde;
 import UmbrellaCorp.UmbrellaTravel.repository.BenutzerRepository;
 
 @Configuration
@@ -51,8 +52,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter
 	public DaoAuthenticationProvider authenticationProvider() 
 	{
 		final DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
-		//authProvider.setUserDetailsService(userDetailsService);
+		authProvider.setUserDetailsService(userDetailsService());
 		authProvider.setPasswordEncoder(passwordEncoder());
 		return authProvider;
 	}
+
+	@Bean
+	public UserDetailsService userDetailsService() 
+	{
+		return new AuthenticatedUserService();
+	};
 }

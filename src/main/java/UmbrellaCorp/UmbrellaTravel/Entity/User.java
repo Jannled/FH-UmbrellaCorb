@@ -83,7 +83,7 @@ public class User implements UserDetails {
 		this.email = email.toLowerCase();
 	}
 
-	public void setPasswort(String passwort) {
+	public void setPassword(String passwort) {
 		this.password = passwort;
 	}
 

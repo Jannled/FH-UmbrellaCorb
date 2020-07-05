@@ -3,6 +3,7 @@ package UmbrellaCorp.UmbrellaTravel.controller;
 import java.security.Principal;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +19,9 @@ public class UserController
     @Autowired
     BenutzerRepository benutzerRepository;
 
+	@Autowired
+	PasswordEncoder passwordEncoder;
+
     @GetMapping("registration")
 	public String registrationGET(Model model, Principal principal)
 	{
@@ -32,6 +36,7 @@ public class UserController
 	@PostMapping("registration")
 	public String registrationPUT(@ModelAttribute User user)
 	{
+		user.setPassword(passwordEncoder.encode(user.getPassword()));
         benutzerRepository.save(user);
 		return "login";
 	}
