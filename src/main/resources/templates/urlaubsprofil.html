@@ -41,9 +41,10 @@
                         <td th:text="${reise.beginn}"></td>
                         <td th:text="${reise.ende}"></td>
                         <td>
-                            <form method="POST">
+                            <form th:action="@{/urlaubsprofil}" th:object="${reise}" method="POST">
                                 Bewertung eingeben:
-                                <input type="number" min="0" max="5"><br>
+                                <input type="number" min="0" max="5" th:field="*{bewertung}">
+                                <input type="submit">
                             </form>
                         </td>
                     </tr>
