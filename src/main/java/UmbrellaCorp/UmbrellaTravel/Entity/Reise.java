@@ -1,14 +1,15 @@
-package UmbrellaCorp.UmbrellaTravel.Entity;
+package UmbrellaCorp.UmbrellaTravel.entity;
 
-import java.sql.Date;
-
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.validation.constraints.NotBlank;
+import javax.persistence.OneToOne;
 
-
+/**
+ * Repräsentiert eine gebuchte Reise
+ */
 @Entity
 public class Reise 
 {
@@ -16,40 +17,42 @@ public class Reise
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long ID;
 
-	@NotBlank(message = "Reisebeginn ist ein notwendiges Feld!")
-	private Date beginn;
+	@OneToOne(cascade = CascadeType.ALL)
+	private Bewertung bewertung;
 
-	@NotBlank(message = "Reieseende ist ein notwendiges Feld!")
-	private Date ende;
-	//private Reiseort reiseziel;
+	@OneToOne(cascade = CascadeType.ALL)
+	private Reiseziel ziel;
 
-	public Reise()
+	public Reise() {};
+
+	public Reise(Reiseziel reiseziel, Bewertung bewertung)
 	{
-		this(new Date(0), new Date((new java.util.Date()).getTime()));
+		this.ziel = reiseziel;
+		this.bewertung = bewertung;
 	}
 
-	public Reise(Date beginn, Date ende)
+	public long getID()
 	{
-		this.beginn = beginn;
-		this.ende = ende;
-		//reiseziele = new LinkedList<Reiseort>();
+		return ID;
 	}
 
-	/*public void zielHinzufuegen(Reiseort ziel)
+	public Reiseziel getZiel()
 	{
-		reiseziele.add(ziel);
-	}*/
-
-	public Date getBeginn() {
-		return beginn;
+		return ziel;
 	}
 
-	public Date getEnde() {
-		return ende;
+	public void setZiel(Reiseziel reiseziel)
+	{
+		this.ziel = reiseziel;
 	}
 
-	/*public List<Reiseort> getZiele()
+	public Bewertung getBewertung()
 	{
-		return reiseziele;
-	}*/
+		return bewertung;
+	}
+
+	public void setBewertung(Bewertung bewertung)
+	{
+		this.bewertung = bewertung;
+	}
 }

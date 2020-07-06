@@ -1,4 +1,4 @@
-package UmbrellaCorp.UmbrellaTravel.Entity;
+package UmbrellaCorp.UmbrellaTravel.entity;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -34,7 +34,7 @@ public class User implements UserDetails {
 	private String email;
 
 	@NotBlank(message = "Bitte geben Sie ein valides Passwort ein!")
-	private String password; // CLUDGE
+	private String password;
 
 	public User() {
 

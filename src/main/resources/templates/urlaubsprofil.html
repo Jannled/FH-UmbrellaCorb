@@ -2,60 +2,62 @@
 <html xmlns:th="http://thymeleaf.org">
 
 <head>
-    <title>Urlaubsprofil</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-
+	<title>Urlaubsprofil</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
 <body>
 
-    <div id="header">
-        <header th:insert="header :: myheader">
-        </header>
-        <h1 class="siteName">Urlaubsprofil</h1>
-    </div>
+	<div id="header">
+		<header th:insert="header :: myheader">
+		</header>
+		<h1 class="siteName">Urlaubsprofil</h1>
+	</div>
 
-    <nav class="navi" th:insert="nav :: mynav">
-    </nav>
+	<nav class="navi" th:insert="nav :: mynav">
+	</nav>
 
-    <div th:switch="${reisen}">
-        <h2 th:case="null">No journeys yet!</h2>
-        <div th:case="*">
-            <h2>Reisen</h2>
-            <table id="tabelle">
-                <thead>
-                    <tr>
-                        <th>Ziel</th>
-                        <th>Unterkunft</th>
-                        <th>Von</th>
-                        <th>Bis</th>
-                        <!--<th>Löschen</th>-->
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr th:each="reise : ${reisen}">
-                        <td th:text="${reise.ort}"></td>
-                        <td th:text="${reise.unterkunft}"></td>
-                        <td th:text="${reise.beginn}"></td>
-                        <td th:text="${reise.ende}"></td>
-                        <td>
-                            <form th:action="@{/urlaubsprofil}" th:object="${reise}" method="POST">
-                                Bewertung eingeben:
-                                <input type="number" min="0" max="5" th:field="*{bewertung}">
-                                <input type="submit">
-                            </form>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+	<div th:switch="${reisen}">
+		<h2 th:case="null">No journeys yet!</h2>
+		<div th:case="*">
+			<h2>Reisen</h2>
+			<table id="tabelle">
+				<thead>
+					<tr>
+						<th>Titel</th>
+						<th>Beschreibung</th>
+						<th>Ort</th>
+						<th>Preis</th>
+						<th>Bewertung</th>
+						<th>Bewerten</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="reise : ${reisen}">
+						<td th:text="${reise.ziel.titel}"></td>
+						<td th:text="${reise.ziel.beschreibung}"></td>
+						<td th:text="${reise.ziel.ort}"></td>
+						<td th:text="${reise.ziel.preis} + '€'"></td>
+						<td th:text="${reise.ziel.bewertung}"></td>
+						<td>
+							<form th:action="@{/urlaubsprofil}" method="POST">
+								Bewertung eingeben:
+								<input type="hidden" name="reiseID" th:value="${reise.ID}">
+								<input type="number" min="0" max="10" name="bewertung" th:value="${reise.bewertung.punkte}">
+								<input type="submit">
+							</form>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 
-    </div>
+	</div>
 
-    <footer th:insert="footer :: myFooter">
-    </footer>
+	<footer th:insert="footer :: myFooter">
+	</footer>
 </body>
 
 </html>

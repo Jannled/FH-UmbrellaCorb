@@ -6,7 +6,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import UmbrellaCorp.UmbrellaTravel.Entity.User;
+import UmbrellaCorp.UmbrellaTravel.entity.User;
 import UmbrellaCorp.UmbrellaTravel.repository.BenutzerRepository;
 
 @Service
