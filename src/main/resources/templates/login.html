@@ -51,8 +51,8 @@
         <p>Noch kein User? <a href="registration">Registrieren</a></p>
 
         <form th:action="@{/login.html}" method="post">
-            <label> User Name : <input type="text" name="username"/> </label>
-            <label> Password: <input type="password" name="password"/> </label>
+            <label for="username"> Email: <input type="email" name="username"/> </label>
+            <label for="password"> Password: <input type="password" name="password"/> </label>
             <input type="submit" value="Sign In" />
         </form>
     </main>
