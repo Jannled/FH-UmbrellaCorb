@@ -72,11 +72,4 @@ public class Unterkunft {
 		this.preis = preis;
 	}
 
-	public void einchecken() {
-
-	}
-
-	public void auschecken() {
-
-	}
 }

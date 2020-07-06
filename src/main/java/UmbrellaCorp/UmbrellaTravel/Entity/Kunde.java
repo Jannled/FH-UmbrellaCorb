@@ -35,13 +35,6 @@ public class Kunde extends User
 		this.gesperrt=gesperrt;
 	}
 	
-	public void registrieren() {
-		
-	}
-	
-	public void beitragErstellen() {
-		
-	}
 	
 	public void reiseBuchen(ReiseV2 r) {
 		reisen.add(r);
