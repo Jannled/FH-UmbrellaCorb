@@ -24,10 +24,10 @@
     <div id="profil">
         <h2>Profildaten</h2>
         <ul>
-            <li th:text="${user.email}"></li>
-            <li th:text="${user.vorname}"></li>
-            <li th:text="${user.nachname}"></li>
-            <li th:text="${user.kundennummer}"></li>
+            <li th:text="|Email: ${user.email}|"></li>
+            <li th:text="|Vorname: ${user.vorname}|">Vorname: </li>
+            <li th:text="|Nachname: ${user.nachname}|">Nachname: </li>
+            <li th:text="|Kundennummer: ${user.kundennummer}|">Kundennummer: </li>
         </ul>
         <h2><a href="urlaubsprofil">Urlaubsprofil</a></h2>
 
