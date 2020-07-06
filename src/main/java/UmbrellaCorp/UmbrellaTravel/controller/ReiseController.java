@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import UmbrellaCorp.UmbrellaTravel.Entity.Kunde;
-import UmbrellaCorp.UmbrellaTravel.Entity.Reise;
 import UmbrellaCorp.UmbrellaTravel.Entity.User;
 import UmbrellaCorp.UmbrellaTravel.Reiseliste;
 import UmbrellaCorp.UmbrellaTravel.repository.BenutzerRepository;
@@ -28,14 +27,14 @@ public class ReiseController
 	ReiseRepository reiseRepository;
 
 	@GetMapping("urlaubsprofil")
-	public String reisenRequest(Reise reise, Model model, Principal principal) 
+	public String reisenRequest(Model model, Principal principal) 
 	{
 		if(principal == null)
-			model.addAttribute("user", new Kunde());
-		else
-			model.addAttribute("user", benutzerRepository.findByEmail(principal.getName()));
-		
-		model.addAttribute("reisen", new Kunde().getReisen());
+			return "login";
+
+		Kunde kunde = (Kunde) benutzerRepository.findByEmail(principal.getName());
+		model.addAttribute("user", kunde);
+		model.addAttribute("reisen", kunde.getReisen());
 		
 		return "urlaubsprofil";
 	}
@@ -51,21 +50,25 @@ public class ReiseController
 	}
 
 	@GetMapping("reise_buchen")
-	public String buchenRequest(@RequestParam("reiseID") String reiseID, @NotNull(message = "Sie müssen angemeldet sein, um eine Reise zu buchen!") Principal principal)
+	public String buchenRequest(Model model, @RequestParam("reiseID") String reiseID, @NotNull(message = "Sie müssen angemeldet sein, um eine Reise zu buchen!") Principal principal)
 	{
 		if(principal == null)
 			return "login";
 
-		System.out.println("Reise mit ID " + reiseID + " gebucht!");
 		User u = benutzerRepository.findByEmail(principal.getName());
 		if(u instanceof Kunde)
 		{
 			Kunde kunde = (Kunde) u;
 			kunde.reiseBuchen(reiseRepository.findById(Long.parseLong(reiseID)).get());
+			benutzerRepository.save(kunde);
 		}
 		else
 			throw new RuntimeException(u.toString() + " ist kein Kunde!");
-		
-		return "urlaubsprofil";
+
+		System.out.println("Reise mit ID " + reiseID + " gebucht!");
+
+		return reisenRequest(model, principal);
 	}
+
+
 }
