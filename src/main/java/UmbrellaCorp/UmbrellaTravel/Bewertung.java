@@ -20,8 +20,5 @@ public class Bewertung {
 		this.punkte = punkte;
 	}
 	
-	public void punkteVergeben(){
-		
-	}
 	
 }
