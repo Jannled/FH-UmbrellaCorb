@@ -33,14 +33,15 @@
 		</thead>
 		<tbody>
 			<tr th:each="reise : ${reisen}" title="Klicken sie die Reise an, um sie zu buchen">
-				<a th:href="'/reise_buchen?reiseID=' + ${reise.ID}">
-					<td th:text="${reise.titel}"></td>
-					<td th:text="${reise.beschreibung}"></td>
-					<td th:text="${reise.ort}"></td>
-					<td th:text="${reise.preis} + '€'"></td>
-					<td th:text="${reise.bewertung}"></td>
-				</a>
-			</tr>			
+
+				<td th:text="${reise.titel}"></td>
+				<td th:text="${reise.beschreibung}"></td>
+				<td th:text="${reise.ort}"></td>
+				<td th:text="${reise.preis} + '€'"></td>
+				<td th:text="${reise.bewertung}"></td>
+				<td><a th:href="'/reise_buchen?reiseID=' + ${reise.ID}">Hier Reise Buchen</a></td>
+
+			</tr>
 		</tbody>
 	</table>
 
