@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import UmbrellaCorp.UmbrellaTravel.Entity.Kunde;
 import UmbrellaCorp.UmbrellaTravel.Entity.User;
 import UmbrellaCorp.UmbrellaTravel.repository.BenutzerRepository;
 
@@ -22,11 +23,22 @@ public class UserController
 	@Autowired
 	PasswordEncoder passwordEncoder;
 
+	@GetMapping("login")
+	public String loginGET(Model model, Principal principal)
+	{
+		if(principal == null)
+			model.addAttribute("user", new Kunde());
+		else
+			model.addAttribute("user", benutzerRepository.findByEmail(principal.getName()));
+
+		return "login";
+	}
+
     @GetMapping("registration")
 	public String registrationGET(Model model, Principal principal)
 	{
 		if(principal == null)
-			model.addAttribute("user", new User());
+			model.addAttribute("user", new Kunde());
 		else
 			model.addAttribute("user", benutzerRepository.findByEmail(principal.getName()));
 
@@ -39,5 +51,16 @@ public class UserController
 		user.setPassword(passwordEncoder.encode(user.getPassword()));
         benutzerRepository.save(user);
 		return "login";
+	}
+
+	@GetMapping("profil")
+	public String profilGET(Model model, Principal principal)
+	{
+		if(principal == null)
+			return "login";
+		else
+			model.addAttribute("user", benutzerRepository.findByEmail(principal.getName()));
+		
+		return "profil";
 	}
 }

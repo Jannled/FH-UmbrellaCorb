@@ -1,5 +1,6 @@
 package UmbrellaCorp.UmbrellaTravel.Entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,13 +14,16 @@ public class ReiseV2
 	private long ID;
 	
 	private String titel;
+
+	@Column(length = 1023)
 	private String beschreibung;
+
 	private String ort;
 
 	/** Preis Pro Nacht pro Person */
 	private float preis;
 
-	/** 0-5 Sterne, Stern kann auch halb gefüllt sein */
+	/** 0-5 Sterne, Stern kann auch halb gefüllt sein (sprich Werte von 0-10) */
 	private short bewertung;
 	
 	public ReiseV2()

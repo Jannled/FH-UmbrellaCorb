@@ -13,7 +13,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import UmbrellaCorp.UmbrellaTravel.Entity.Kunde;
 import UmbrellaCorp.UmbrellaTravel.repository.BenutzerRepository;
 
 @Configuration
