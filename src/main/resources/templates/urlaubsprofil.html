@@ -12,11 +12,11 @@
 <body>
 
     <div id="header">
-    <header th:insert="header :: myheader">
-    </header>
-    <h1 class="siteName">Urlaubsprofil</h1>
+        <header th:insert="header :: myheader">
+        </header>
+        <h1 class="siteName">Urlaubsprofil</h1>
     </div>
-    
+
     <nav class="navi" th:insert="nav :: mynav">
     </nav>
 
@@ -35,12 +35,17 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <a href=""></a>
                     <tr th:each="reise : ${reisen}">
                         <td th:text="${reise.ort}"></td>
                         <td th:text="${reise.unterkunft}"></td>
                         <td th:text="${reise.beginn}"></td>
-                        <td th:text="${reise.ende}"></td>           
+                        <td th:text="${reise.ende}"></td>
+                        <td>
+                            <form method="POST">
+                                Bewertung eingeben:
+                                <input type="number" min="0" max="5"><br>
+                            </form>
+                        </td>
                     </tr>
                 </tbody>
             </table>
