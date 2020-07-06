@@ -9,11 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import UmbrellaCorp.UmbrellaTravel.Entity.Kunde;
 import UmbrellaCorp.UmbrellaTravel.Entity.Reise;
+import UmbrellaCorp.UmbrellaTravel.Entity.User;
 import UmbrellaCorp.UmbrellaTravel.Reiseliste;
 import UmbrellaCorp.UmbrellaTravel.repository.BenutzerRepository;
 import UmbrellaCorp.UmbrellaTravel.repository.ReiseRepository;
@@ -53,7 +53,19 @@ public class ReiseController
 	@GetMapping("reise_buchen")
 	public String buchenRequest(@RequestParam("reiseID") String reiseID, @NotNull(message = "Sie müssen angemeldet sein, um eine Reise zu buchen!") Principal principal)
 	{
+		if(principal == null)
+			return "login";
+
 		System.out.println("Reise mit ID " + reiseID + " gebucht!");
+		User u = benutzerRepository.findByEmail(principal.getName());
+		if(u instanceof Kunde)
+		{
+			Kunde kunde = (Kunde) u;
+			kunde.reiseBuchen(reiseRepository.findById(Long.parseLong(reiseID)).get());
+		}
+		else
+			throw new RuntimeException(u.toString() + " ist kein Kunde!");
+		
 		return "urlaubsprofil";
 	}
 }

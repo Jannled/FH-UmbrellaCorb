@@ -34,8 +34,7 @@ public class Kunde extends User
 	public void setGesperrt(boolean gesperrt) {
 		this.gesperrt=gesperrt;
 	}
-	
-	
+
 	public void reiseBuchen(ReiseV2 r) {
 		reisen.add(r);
 	}

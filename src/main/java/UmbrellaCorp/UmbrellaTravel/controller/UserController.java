@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import UmbrellaCorp.UmbrellaTravel.Entity.Kunde;
-import UmbrellaCorp.UmbrellaTravel.Entity.User;
 import UmbrellaCorp.UmbrellaTravel.repository.BenutzerRepository;
 
 @Controller
@@ -46,7 +45,7 @@ public class UserController
 	}
 	
 	@PostMapping("registration")
-	public String registrationPUT(@ModelAttribute User user)
+	public String registrationPUT(@ModelAttribute Kunde user)
 	{
 		user.setPassword(passwordEncoder.encode(user.getPassword()));
         benutzerRepository.save(user);
