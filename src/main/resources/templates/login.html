@@ -5,6 +5,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/header.css">
+    <link rel="stylesheet" type="text/css" href="css/nav.css">
+    <link rel="stylesheet" type="text/css" href="css/footer.css">
     <title>Einloggen</title>
 </head>
 
@@ -17,43 +20,17 @@
     <nav class="navi" th:insert="nav :: mynav">
     </nav>
 
-    <!--<main>
-      <form action="#" method="post">
-        <fieldset>
-          <legend>Bitte Anmeldedaten eingeben...</legend>
-          <div class="req">
-            <label for="email">Email</label>
-            <input
-              name="email"
-              id="email"
-              type="email"
-              th:field="${user.email}"
-            />
-          </div>
-          <div class="req">
-            <label for="passwort">Passwort</label>
-            <input
-              name="passwort"
-              id="password"
-              type="password"
-              th:field="${user.passwort}"
-            />
-          </div>
-        </fieldset>
-        <div><input type="submit" value="Einloggen" /></div>
-      </form>
-      <p>Noch kein User? <a href="registration.html">Registrieren</a></p>
-    </main>-->
-
     <main>
         <h1 th:text="'Hallo ' + ${#httpServletRequest.remoteUser}">Willkommen, unbekannter Nutzer!</h1>
         <p>Bitte Anmeldedaten eingeben...</p>
         <p>Noch kein User? <a href="registration">Registrieren</a></p>
 
         <form th:action="@{/login.html}" method="post">
-            <label for="username"> Email: <input type="email" name="username"/> </label>
-            <label for="password"> Password: <input type="password" name="password"/> </label>
-            <input type="submit" value="Sign In" />
+            <ul>
+                <li><label for="username"> Email: <input type="email" name="username"/> </label></li>
+                <li><label for="password"> Password: <input type="password" name="password"/> </label></li>
+                <li><input type="submit" value="Sign In" /></li>
+            </ul>
         </form>
     </main>
 
