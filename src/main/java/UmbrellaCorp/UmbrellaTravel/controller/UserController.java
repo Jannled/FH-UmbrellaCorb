@@ -30,7 +30,7 @@ public class UserController
 		if(principal == null)
 			model.addAttribute("user", null);
 		else
-			model.addAttribute("user", benutzerRepository.findByEmail(principal.getName()));
+			model.addAttribute("user", benutzerRepository.findByEmail(principal.getName().toLowerCase()));
 
 		return "login";
 	}
@@ -41,7 +41,7 @@ public class UserController
 		if(principal == null)
 			model.addAttribute("user", new Kunde());
 		else
-			model.addAttribute("user", benutzerRepository.findByEmail(principal.getName()));
+			model.addAttribute("user", benutzerRepository.findByEmail(principal.getName().toLowerCase()));
 
 		return "registration";
 	}
@@ -50,7 +50,8 @@ public class UserController
 	public String registrationPUT(@ModelAttribute Kunde user)
 	{
 		user.encryptPassword(user.getPassword());
-        benutzerRepository.save(user);
+		benutzerRepository.save(user);
+		System.out.println(user.toString() + " hat sich registriert!");
 		return "login";
 	}
 }

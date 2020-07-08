@@ -35,7 +35,7 @@ public class ReiseController
 		if(principal == null)
 			return "login";
 		
-		Kunde kunde = (Kunde) benutzerRepository.findByEmail(principal.getName());
+		Kunde kunde = (Kunde) benutzerRepository.findByEmail(principal.getName().toLowerCase());
 		model.addAttribute("user", kunde);
 		model.addAttribute("reisen", kunde.getReisen());
 
@@ -48,7 +48,7 @@ public class ReiseController
 		@RequestParam("reiseID") String reiseID, 
 		@RequestParam("bewertung") String bewertung)
 	{
-		User u = benutzerRepository.findByEmail(principal.getName());
+		User u = benutzerRepository.findByEmail(principal.getName().toLowerCase());
 		if(u instanceof Kunde)
 		{
 			Kunde kunde = (Kunde) u;
@@ -85,7 +85,7 @@ public class ReiseController
 		if(principal == null)
 			return "login";
 
-		User u = benutzerRepository.findByEmail(principal.getName());
+		User u = benutzerRepository.findByEmail(principal.getName().toLowerCase());
 		if(u instanceof Kunde)
 		{
 			Kunde kunde = (Kunde) u;
