@@ -19,7 +19,8 @@
 
 body {
     background-color: moccasin;
-    margin-bottom: 100px; /* Fix Footer verdeckt Body */
+    margin-bottom: 100px;
+    /* Fix Footer verdeckt Body */
 }
 
 tr:hover {
@@ -42,17 +43,29 @@ tr:hover {
     justify-content: center;
     justify-content: space-around;
     list-style-type: none;
+    background-color: burlywood;
 }
 
-.navi ul li {
-    /*li elemente style im navigationsmenü */
+
+/*.navi ul li {
     font-size: 1.5em;
     font-style: italic;
     box-shadow: 6px 5px gray ;
     border: solid 1px;
+}*/
+
+.navi ul li {
+    font-size: 1.5em;
+    font-family: monospace;
+    color: black;
 }
+
+.navi ul li:hover {
+    background-color: darkorange;
+}
+
 .navi ul li a {
-   text-decoration: none;
+    text-decoration: none;
 }
 
 footer {
