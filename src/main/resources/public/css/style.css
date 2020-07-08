@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    font-family: monospace;
 }
 
 #profil {
@@ -17,7 +18,7 @@
 }
 
 body {
-    background-color: sandybrown;
+    background-color: moccasin;
     margin-bottom: 100px; /* Fix Footer verdeckt Body */
 }
 
@@ -31,6 +32,7 @@ tr:hover {
 
 .navi h2 {
     text-align: center;
+    font-style: italic;
 }
 
 .navi ul {
@@ -46,6 +48,11 @@ tr:hover {
     /*li elemente style im navigationsmenü */
     font-size: 1.5em;
     font-style: italic;
+    box-shadow: 6px 5px gray ;
+    border: solid 1px;
+}
+.navi ul li a {
+   text-decoration: none;
 }
 
 footer {
