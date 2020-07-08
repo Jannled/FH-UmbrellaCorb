@@ -32,22 +32,21 @@ public class Reiseziel
 	
 	public Reiseziel()
 	{
-		this("--Titel--", "--Beschreibung-- \n Fancy wa?", "--Ort--", -0.0f, (short) 10);
+		this("--Titel--", "--Beschreibung-- \n Fancy wa?", "--Ort--", -0.0f);
 	}
 
-	public Reiseziel(String titel, String beschreibung, String ort, float preis, short bewertung)
+	public Reiseziel(String titel, String beschreibung, String ort, float preis)
 	{
 		this.titel = titel;
 		this.beschreibung = beschreibung;
 		this.ort = ort;
 		this.preis = preis;
-		this.bewertung = bewertung;
 	}
 
 	public short updateBewertung(short bewertung)
 	{
-		anzBewertungen++;
-		//TODO Bewertung berechnen bewertung = bewertung + 
+		this.bewertung = (this.bewertung * anzBewertungen + bewertung) / ++anzBewertungen;
+		System.out.printf("Bewertung für %s: %.3f %n", toString(), this.bewertung);
 		return bewertung;
 	}
 

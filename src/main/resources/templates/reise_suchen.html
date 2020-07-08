@@ -33,14 +33,16 @@
 		</thead>
 		<tbody>
 			<tr th:each="reise : ${reisen}" title="Klicken sie die Reise an, um sie zu buchen">
-
 				<td th:text="${reise.titel}"></td>
 				<td th:text="${reise.beschreibung}"></td>
 				<td th:text="${reise.ort}"></td>
 				<td th:text="${reise.preis} + '€'"></td>
 				<td th:text="${reise.bewertung}"></td>
-				<td><a th:href="'/reise_buchen?reiseID=' + ${reise.ID}">Hier Reise Buchen</a></td>
-
+				<td>
+					<form th:action="@{/reise_buchen}" method="POST">
+						<input type="submit" value="Hier reise Buchen">
+					</form>
+				</td>
 			</tr>
 		</tbody>
 	</table>

@@ -43,7 +43,7 @@ public class ReiseController
 	}
 
 	@PostMapping("urlaubsprofil")
-	public void reiseBewerten(Model model, 
+	public String reiseBewerten(Model model, 
 		@NotNull(message = "Sie müssen angemeldet sein, um eine Reise zu bewerten!") Principal principal, 
 		@RequestParam("reiseID") String reiseID, 
 		@RequestParam("bewertung") String bewertung)
@@ -54,12 +54,18 @@ public class ReiseController
 			Kunde kunde = (Kunde) u;
 			Reise reise = kunde.getReise(Long.parseLong(reiseID));
 			Reiseziel reiseziel = reiseRepository.findById(reise.getZiel().getID()).get();
+			short punkte = Short.parseShort(bewertung);
 
-			
+			reise.getBewertung().setPunkte(punkte);
+			reise.getZiel().updateBewertung(punkte);
+
 			benutzerRepository.save(kunde);
+			reiseRepository.save(reiseziel);
 		}
 		else
 			throw new RuntimeException(u.toString() + " ist kein Kunde!");
+
+		return reisenRequest(model, principal);
 	}
 
 	@GetMapping("reise_suchen")
@@ -72,7 +78,7 @@ public class ReiseController
 		return "reise_suchen";
 	}
 
-	@GetMapping("reise_buchen")
+	@PostMapping("reise_buchen")
 	public String buchenRequest(Model model, @RequestParam("reiseID") String reiseID, @NotNull(message = "Sie müssen angemeldet sein, um eine Reise zu buchen!") Principal principal)
 	{
 		if(principal == null)
