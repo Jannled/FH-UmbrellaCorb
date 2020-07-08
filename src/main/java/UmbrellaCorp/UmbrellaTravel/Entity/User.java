@@ -50,7 +50,7 @@ public class User implements UserDetails
 		this.vorname = vorname;
 		this.nachname = nachname;
 		this.email = email.toLowerCase();
-		this.password = passwort;
+		encryptPassword(passwort);
 	}
 
 	public boolean verifyPasswort(String passwort) {
