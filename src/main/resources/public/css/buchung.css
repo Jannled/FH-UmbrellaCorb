@@ -1,0 +1,35 @@
+.paper {
+    max-width: 1280px;
+    margin: auto;
+}
+
+.card {
+    border: 1px solid gray;
+    border-radius: 10px;
+    background-color: white;
+    padding: 2em;
+    margin: 1em;
+}
+
+.buchungBeschreibung {
+    width: auto;
+    overflow: hidden;
+    padding-right: 2em;
+}
+
+.buchungDetails {
+    width: 150px;
+    float: right;
+}
+
+.preis {
+    font-size: large;
+}
+
+h2, h3 {
+    margin-top: 0;
+}
+
+h2 {
+    color: coral;
+}

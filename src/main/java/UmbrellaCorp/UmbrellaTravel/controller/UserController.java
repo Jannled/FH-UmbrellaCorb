@@ -28,7 +28,7 @@ public class UserController
 			benutzerRepository.saveAll(Arrays.asList(Beispiele.kunden));
 
 		if(principal == null)
-			model.addAttribute("user", new Kunde());
+			model.addAttribute("user", null);
 		else
 			model.addAttribute("user", benutzerRepository.findByEmail(principal.getName()));
 
@@ -52,16 +52,5 @@ public class UserController
 		user.encryptPassword(user.getPassword());
         benutzerRepository.save(user);
 		return "login";
-	}
-
-	@GetMapping("profil")
-	public String profilGET(Model model, Principal principal)
-	{
-		if(principal == null)
-			return "login";
-		else
-			model.addAttribute("user", benutzerRepository.findByEmail(principal.getName()));
-		
-		return "profil";
 	}
 }

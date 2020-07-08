@@ -33,7 +33,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter
 		http.csrf().disable(); //Prevent POST 403 
 		http.authorizeRequests().antMatchers("**").permitAll().anyRequest().authenticated().and();
 		http.formLogin().loginPage("/login.html").permitAll();
-		http.logout().permitAll();
+		http.logout().logoutSuccessUrl("/").permitAll();
 	}
 
 	@Override

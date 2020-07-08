@@ -29,20 +29,20 @@ public class ReiseController
 	@Autowired
 	ReiseRepository reiseRepository;
 
-	@GetMapping("urlaubsprofil")
-	public String reisenRequest(Model model, Principal principal) 
+	@GetMapping("profil")
+	public String profilGET(Model model, Principal principal)
 	{
 		if(principal == null)
 			return "login";
-
+		
 		Kunde kunde = (Kunde) benutzerRepository.findByEmail(principal.getName());
 		model.addAttribute("user", kunde);
 		model.addAttribute("reisen", kunde.getReisen());
-		
-		return "urlaubsprofil";
+
+		return "profil";
 	}
 
-	@PostMapping("urlaubsprofil")
+	@PostMapping("profil")
 	public String reiseBewerten(Model model, 
 		@NotNull(message = "Sie müssen angemeldet sein, um eine Reise zu bewerten!") Principal principal, 
 		@RequestParam("reiseID") String reiseID, 
@@ -65,7 +65,7 @@ public class ReiseController
 		else
 			throw new RuntimeException(u.toString() + " ist kein Kunde!");
 
-		return reisenRequest(model, principal);
+		return profilGET(model, principal);
 	}
 
 	@GetMapping("reise_suchen")
@@ -98,6 +98,6 @@ public class ReiseController
 
 		System.out.println(u.toString() + " hat Reise mit ID " + reiseID + " gebucht!");
 
-		return reisenRequest(model, principal);
+		return profilGET(model, principal);
 	}
 }

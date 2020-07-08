@@ -45,3 +45,23 @@ th,
 td {
     border: 1px solid black;
 }
+
+input[type="email"], input[type="password"], input[type="text"], input[type="number"] {
+    margin: 4px;
+    padding: 0.5em;
+    font-size: medium;
+}
+
+button, input[type="submit"] {
+    background-color: coral;
+    padding: 1em;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    display: inline-block;
+}
+
+button:hover, input[type="submit"]:hover {
+    background-color: rgb(197, 98, 62);
+}

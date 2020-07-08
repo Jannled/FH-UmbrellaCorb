@@ -2,41 +2,52 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <link rel="stylesheet" type="text/css" href="css/header.css">
-    <link rel="stylesheet" type="text/css" href="css/nav.css">
-    <link rel="stylesheet" type="text/css" href="css/footer.css">
-    <title>Einloggen</title>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	<link rel="stylesheet" type="text/css" href="css/header.css">
+	<link rel="stylesheet" type="text/css" href="css/nav.css">
+	<link rel="stylesheet" type="text/css" href="css/footer.css">
+	<title>Einloggen</title>
 </head>
 
 <body>
-    <div id="header">
-        <header th:insert="header :: myheader"></header>
-        <h1 class="siteName">Einloggen</h1>
-    </div>
+	<div id="header">
+		<header th:insert="header :: myheader"></header>
+		<h1 class="siteName">Einloggen</h1>
+	</div>
 
-    <nav class="navi" th:insert="nav :: mynav">
-    </nav>
+	<nav class="navi" th:insert="nav :: mynav">
+	</nav>
 
-    <main>
-        <h1 th:text="'Hallo ' + ${#httpServletRequest.remoteUser}">Willkommen, unbekannter Nutzer!</h1>
-        <p>Bitte Anmeldedaten eingeben...</p>
-        <p>Noch kein User? <a href="registration">Registrieren</a></p>
+	<main>
+		<div th:if="${user == null}">
+			<h1>Willkommen</h1>
+			<p>Bitte Anmeldedaten eingeben...</p>
+			<p>Noch kein User? <a href="registration">Registrieren</a></p>
 
-        <form th:action="@{/login.html}" method="post">
-            <ul>
-                <li><label for="username"> Email: <input type="email" name="username"/> </label></li>
-                <li><label for="password"> Password: <input type="password" name="password"/> </label></li>
-                <li><input type="submit" value="Sign In" /></li>
-            </ul>
-        </form>
-    </main>
+			<form th:action="@{/login.html}" method="post">
+				<ul>
+					<li><label for="username"> Email: <input type="email" name="username"/> </label></li>
+					<li><label for="password"> Password: <input type="password" name="password"/> </label></li>
+					<li><input type="submit" value="Sign In" /></li>
+				</ul>
+			</form>
+		</div>
+		<div th:unless="${user == null}">
+			<h1 th:text="'Hallo ' + ${user.vorname}">Thymeleaf konnte Benutzer nicht finden!</h1>
+			<p>
+				Hier geht es zu deinem <a href="/profil">Profil</a> und hier kannst du eine <a href="/reise_suchen">Reise Buchen</a>
+			</p>
+			<form th:action="@{/logout}" method="POST" style="display: initial;">
+				<input type="submit" value="Abmelden">
+			</form>	
+		</div>
+	</main>
 
-    <footer>
-        <div th:insert="footer :: myFooter"></div>
-    </footer>
+	<footer>
+		<div th:insert="footer :: myFooter"></div>
+	</footer>
 </body>
 
 </html>

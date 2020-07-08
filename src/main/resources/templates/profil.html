@@ -3,41 +3,87 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <title>Profil</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/header.css">
-    <link rel="stylesheet" type="text/css" href="css/nav.css">
-    <link rel="stylesheet" type="text/css" href="css/footer.css">
+	<title>Urlaubsprofil</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/header.css">
+	<link rel="stylesheet" type="text/css" href="css/nav.css">
+	<link rel="stylesheet" type="text/css" href="css/footer.css">
+	<link rel="stylesheet" type="text/css" href="css/buchung.css">
 </head>
 
-<body>
+<body onload="convertToStars()">
+	<div id="header">
+		<header th:insert="header :: myheader">
+		</header>
+		<h1 class="siteName">Urlaubsprofil</h1>
+	</div>
 
-    <div id="header">
-        <header th:insert="header :: myheader">
-        </header>
-        <h1 class="siteName">Profil</h1>
-    </div>
+	<nav class="navi" th:insert="nav :: mynav">
+	</nav>
 
-    <nav class="navi" th:insert="nav :: mynav">
-    </nav>
+	<!--Dynamisch Profilname-->
+	<div class="paper">
+		<h2>Profildaten</h2>
+		<ul>
+			<li th:text="|Email: ${user.email}|"></li>
+			<li th:text="|Vorname: ${user.vorname}|">Vorname: </li>
+			<li th:text="|Nachname: ${user.nachname}|">Nachname: </li>
+			<li th:text="|Kundennummer: ${user.kundennummer}|">Kundennummer: </li>
+		</ul>
 
-    <!--Dynamisch Profilname-->
-    <div id="profil">
-        <h2>Profildaten</h2>
-        <ul>
-            <li th:text="|Email: ${user.email}|"></li>
-            <li th:text="|Vorname: ${user.vorname}|">Vorname: </li>
-            <li th:text="|Nachname: ${user.nachname}|">Nachname: </li>
-            <li th:text="|Kundennummer: ${user.kundennummer}|">Kundennummer: </li>
-        </ul>
-        <h2><a href="urlaubsprofil">Urlaubsprofil</a></h2>
+		<form th:action="@{/logout}" method="POST" style="display: initial;">
+			<input type="submit" value="Abmelden">
+		</form>	
+		
+		<br><br><br>
 
-    </div>
+		<h2>Urlaubsprofil</h2>
+		<div class="card" th:each="reise : ${reisen}">
+			<div class="buchungDetails">
+				<p class="preis" th:text="${reise.ziel.preis} + '€'"></p>
 
-    <footer th:insert="footer :: myFooter">
-    </footer>
+				<form th:action="@{/profil}" method="POST">
+					Bewertung eingeben:
+					<input type="hidden" name="reiseID" th:value="${reise.ID}">
+					<input type="number" min="0" max="10" name="bewertung" th:value="${reise.bewertung.punkte}">
+					<input type="submit" value="Reise bewerten">
+				</form>
+			</div>
+			<div class="buchungBeschreibung">
+				<h2 th:text="${reise.ziel.titel}">Thymeleaf Fehler!</h2>
+				<h3 th:text="${reise.ziel.ort}"></h3>
+				<span class="bewertung" th:text="${reise.ziel.bewertung}"></span>
+				<p th:text="${reise.ziel.beschreibung}"></p>
+			</div>
+		</div>
+	</div>
+
+	<footer th:insert="footer :: myFooter">
+	</footer>
+
+	<script>
+		function convertToStars()
+		{
+			for(let element of document.getElementsByClassName('bewertung'))
+			{
+				var rating = Number(element.textContent);
+
+				var stars = "";
+				for(var i=0; i<5; i++)
+				{
+					if(rating/2 - i > 0.99)
+						stars += '<img src="/images/Star_Full.svg" width="25">';
+					else if(rating/2 - i > 0.49)
+						stars += '<img src="/images/Star_Half.svg" width="25">';
+					else
+						stars += '<img src="/images/Star_Empty.svg" width="25">';
+				}
+				element.innerHTML = stars;
+			}
+		}
+	</script>
 </body>
 
 </html>

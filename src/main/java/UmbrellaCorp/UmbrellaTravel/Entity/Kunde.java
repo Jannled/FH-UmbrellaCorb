@@ -18,7 +18,7 @@ public class Kunde extends User
 	List<Reise> reisen = new LinkedList<Reise>();
 	
 	public Kunde() {
-		super("--Vorname--", "--Nachname--", "--Email--", "--Passwort--");
+		super("", "", "", "");
 		this.gesperrt = false;
 	}
 	
