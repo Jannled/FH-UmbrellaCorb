@@ -60,4 +60,10 @@ public class Kunde extends User
 	public long getKundennummer() {
 		return getID();
 	}
+
+	@Override
+	public String toString() {
+		String s = super.toString();
+		return s.substring(0, s.length()-1) + ", Gebuchte Reisen: " + reisen.size() + ", Gesperrt: " + gesperrt + ")";
+	}
 }

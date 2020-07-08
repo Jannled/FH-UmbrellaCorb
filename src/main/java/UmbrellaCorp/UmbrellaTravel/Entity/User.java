@@ -138,4 +138,9 @@ public class User implements UserDetails
 	public static void setPasswordEncoder(PasswordEncoder passwordEncoder) {
 		User.passwordEncoder = passwordEncoder;
 	}
+
+	@Override
+	public String toString() {
+		return getClass().getSimpleName() + "(ID: " + getID() + ", EMail: " + getEmail() + ")";
+	}
 }

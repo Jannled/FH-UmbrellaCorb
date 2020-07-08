@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import UmbrellaCorp.UmbrellaTravel.Reiseliste;
+import UmbrellaCorp.UmbrellaTravel.Beispiele;
 import UmbrellaCorp.UmbrellaTravel.entity.Kunde;
 import UmbrellaCorp.UmbrellaTravel.repository.BenutzerRepository;
 
@@ -25,7 +25,7 @@ public class UserController
 	{
 		//TODO Befüllt SQL mit Testeinträgen
 		if(benutzerRepository.count() < 1)
-			benutzerRepository.saveAll(Arrays.asList(Reiseliste.kunden));
+			benutzerRepository.saveAll(Arrays.asList(Beispiele.kunden));
 
 		if(principal == null)
 			model.addAttribute("user", new Kunde());

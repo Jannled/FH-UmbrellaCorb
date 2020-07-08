@@ -55,4 +55,9 @@ public class Reise
 	{
 		this.bewertung = bewertung;
 	}
+
+	@Override
+	public String toString() {
+		return "Reise(ID: " + getID() + ", Ziel: " + getZiel().getTitel() + ")";
+	}
 }

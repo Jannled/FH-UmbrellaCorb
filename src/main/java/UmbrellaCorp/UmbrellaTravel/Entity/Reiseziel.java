@@ -32,7 +32,7 @@ public class Reiseziel
 	
 	public Reiseziel()
 	{
-		this("--Titel--", "--Beschreibung-- \n Fancy wa?", "--Ort--", -0.0f);
+		this("--Titel--", "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. ", "--Ort--", -0.0f);
 	}
 
 	public Reiseziel(String titel, String beschreibung, String ort, float preis)
@@ -108,5 +108,10 @@ public class Reiseziel
 	public void setBewertung(short bewertung)
 	{
 		this.bewertung = bewertung;
+	}
+
+	@Override
+	public String toString() {
+		return "Reiseziel(ID: " + getID() + ", Titel: " + getTitel() + ", Bewertung: " + bewertung + ")";
 	}
 }

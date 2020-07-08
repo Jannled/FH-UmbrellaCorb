@@ -16,7 +16,7 @@ import UmbrellaCorp.UmbrellaTravel.entity.Kunde;
 import UmbrellaCorp.UmbrellaTravel.entity.Reise;
 import UmbrellaCorp.UmbrellaTravel.entity.Reiseziel;
 import UmbrellaCorp.UmbrellaTravel.entity.User;
-import UmbrellaCorp.UmbrellaTravel.Reiseliste;
+import UmbrellaCorp.UmbrellaTravel.Beispiele;
 import UmbrellaCorp.UmbrellaTravel.repository.BenutzerRepository;
 import UmbrellaCorp.UmbrellaTravel.repository.ReiseRepository;
 
@@ -73,7 +73,7 @@ public class ReiseController
 	{
 		//TODO Befüllt SQL mit Testeinträgen
 		if(reiseRepository.count() < 1)
-			reiseRepository.saveAll(Arrays.asList(Reiseliste.reisen));
+			reiseRepository.saveAll(Arrays.asList(Beispiele.reisen));
 
 		model.addAttribute("reisen", reiseRepository.findAll());
 		return "reise_suchen";

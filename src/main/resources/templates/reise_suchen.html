@@ -7,10 +7,56 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+	<style>
+		.paper {
+			max-width: 1280px;
+			margin: auto;
+		}
+
+		.card {
+			border: 1px solid gray;
+			border-radius: 10px;
+			background-color: white;
+			padding: 2em;
+			margin: 1em;
+		}
+
+		.buchungBeschreibung {
+			width: auto;
+			overflow: hidden;
+			padding-right: 2em;
+		}
+
+		.buchungDetails {
+			width: 150px;
+			float: right;
+		}
+
+		.preis {
+			font-size: large;
+		}
+
+		button, input[type="submit"] {
+			background-color: coral;
+			padding: 1em;
+			font-weight: bold;
+			border: none;
+			border-radius: 5px;
+			color: white;
+		}
+
+		button:hover, input[type="submit"]:hover {
+			background-color: rgb(197, 98, 62);
+		}
+
+		h2, h3 {
+			margin-top: 0;
+		}
+	</style>
 </head>
 
-<body>
-
+<body onload="convertToStars()">
 	<div id="header">
 		<header th:insert="header :: myheader">
 		</header>
@@ -19,37 +65,50 @@
 	<nav class="navi" th:insert="nav :: mynav">
 	</nav>
 
-	<h2>Reisen</h2>
-	<table id="tabelle">
-		<thead>
-			<tr>
-				<th>Titel</th>
-				<th>Beschreibung</th>
-				<th>Ort</th>
-				<th>Preis</th>
-				<th>Bewertung</th>
-				<!--<th>Löschen</th>-->
-			</tr>
-		</thead>
-		<tbody>
-			<tr th:each="reise : ${reisen}" title="Klicken sie die Reise an, um sie zu buchen">
-				<td th:text="${reise.titel}"></td>
-				<td th:text="${reise.beschreibung}"></td>
-				<td th:text="${reise.ort}"></td>
-				<td th:text="${reise.preis} + '€'"></td>
-				<td th:text="${reise.bewertung}"></td>
-				<td>
-					<form th:action="@{/reise_buchen}" method="POST">
-						<input type="hidden" name="reiseID" th:value="${reise.ID}">
-						<input type="submit" value="Hier reise Buchen">
-					</form>
-				</td>
-			</tr>
-		</tbody>
-	</table>
+	<div class="paper">
+		<h2>Reisen</h2>
+		<div class="card" th:each="reise : ${reisen}">
+			<div class="buchungDetails">
+				<span class="bewertung" th:text="${reise.bewertung}"></span>
+				<p class="preis" th:text="${reise.preis} + '€'"></p>
+
+				<form th:action="@{/reise_buchen}" method="POST">
+					<input type="hidden" name="reiseID" th:value="${reise.ID}">
+					<input type="submit" value="Jetzt reise Buchen">
+				</form>
+			</div>	
+			<div class="buchungBeschreibung">
+				<h2 th:text="${reise.titel}">Thymeleaf Fehler!</h2>
+				<h3 th:text="${reise.ort}"></h3>
+				<p th:text="${reise.beschreibung}"></p>
+			</div>
+		</div>
+	</div>
 
 	<footer th:insert="footer :: myFooter">
 	</footer>
+
+	<script>
+		function convertToStars()
+		{
+			for(let element of document.getElementsByClassName('bewertung'))
+			{
+				var rating = Number(element.textContent);
+
+				var stars = "";
+				for(var i=0; i<5; i++)
+				{
+					if(rating/2 - i > 0.99)
+						stars += '<img src="/images/Star_Full.svg" width="25">';
+					else if(rating/2 - i > 0.49)
+						stars += '<img src="/images/Star_Half.svg" width="25">';
+					else
+						stars += '<img src="/images/Star_Empty.svg" width="25">';
+				}
+				element.innerHTML = stars;
+			}
+		}
+	</script>
 </body>
 
 </html>
