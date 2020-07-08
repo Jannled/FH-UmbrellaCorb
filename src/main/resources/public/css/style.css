@@ -16,6 +16,17 @@ body {
     /* Fix Footer verdeckt Body */
 }
 
+form {
+    /*style im navigationsmenü */
+    display: flex;
+    flex-direction: column;
+}
+
+form ul {
+    list-style-type: none;
+    padding-left: 0px;
+}
+
 tr:hover {
     background-color: grey;
 }
