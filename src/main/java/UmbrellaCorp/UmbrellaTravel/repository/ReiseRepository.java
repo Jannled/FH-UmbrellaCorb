@@ -3,10 +3,10 @@ package UmbrellaCorp.UmbrellaTravel.repository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import UmbrellaCorp.UmbrellaTravel.Entity.ReiseV2;
+import UmbrellaCorp.UmbrellaTravel.entity.Reiseziel;
 
 @Repository
-public interface ReiseRepository extends CrudRepository<ReiseV2, Long>
+public interface ReiseRepository extends CrudRepository<Reiseziel, Long>
 {
     
 }

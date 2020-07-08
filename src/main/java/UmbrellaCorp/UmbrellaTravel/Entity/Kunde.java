@@ -1,8 +1,9 @@
-package UmbrellaCorp.UmbrellaTravel.Entity;
+package UmbrellaCorp.UmbrellaTravel.entity;
 
 import java.util.LinkedList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
@@ -13,8 +14,8 @@ public class Kunde extends User
 
 	private boolean gesperrt;
 
-	@OneToMany(targetEntity = ReiseV2.class)
-	List<ReiseV2> reisen = new LinkedList<ReiseV2>();
+	@OneToMany(targetEntity = Reise.class, cascade = CascadeType.ALL)
+	List<Reise> reisen = new LinkedList<Reise>();
 	
 	public Kunde() {
 		super("--Vorname--", "--Nachname--", "--Email--", "--Passwort--");
@@ -24,7 +25,6 @@ public class Kunde extends User
 	public Kunde(String vorname, String nachname, String email, String passwort, boolean gesperrt) {
 		super(vorname, nachname, email, passwort);
 		this.gesperrt = gesperrt;
-		reisen.add(new ReiseV2()); // CLUDGE
 	}
 	
 	public boolean getGesperrt() {
@@ -35,13 +35,21 @@ public class Kunde extends User
 		this.gesperrt=gesperrt;
 	}
 
-	public void reiseBuchen(ReiseV2 r) {
-		reisen.add(r);
+	public void reiseBuchen(Reiseziel r) {
+		reisen.add(new Reise(r, new Bewertung()));
 	}
 
-	public List<ReiseV2> getReisen()
+	public List<Reise> getReisen()
 	{
 		return reisen;
+	}
+
+	public Reise getReise(long ID)
+	{
+		for(Reise r : reisen)
+			if(r.getID() == ID) return r;
+
+		return null;
 	}
 
 	@Override
