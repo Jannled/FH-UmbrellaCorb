@@ -57,15 +57,16 @@ tr:hover {
 .navi ul li {
     font-size: 1.5em;
     font-family: monospace;
-    color: black;
+    
 }
 
 .navi ul li:hover {
-    background-color: darkorange;
+    background-color: grey ;
 }
 
 .navi ul li a {
     text-decoration: none;
+    color: color;
 }
 
 footer {
