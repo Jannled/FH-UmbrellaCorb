@@ -56,6 +56,8 @@ tr:hover {
 
 .navi ul li {
     font-size: 1.5em;
+    font-family: monospace;
+    color: black;
 }
 
 .navi ul li:hover {
