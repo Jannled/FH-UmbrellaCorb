@@ -1,5 +1,6 @@
 package UmbrellaCorp.UmbrellaTravel;
 
+import UmbrellaCorp.UmbrellaTravel.entity.Kunde;
 import UmbrellaCorp.UmbrellaTravel.entity.Reiseziel;
 
 public class Reiseliste 
@@ -15,5 +16,12 @@ public class Reiseliste
 		new Reiseziel("Kreuzfahrt", "Erleben Sie die wunderschöne Küste am Horn von Afrika, während Sie von Einheimischen auf die Fischerei mitgenommen werden. Der Kreuzfahrtteil dieser Reise beginnt ab einem zufälligen Zeitpunkt und findet auf einem unbekanntem Handelsschiff statt.", "Mogadischu/Somalia", 32.23f),
 		new Reiseziel("Work and Travel", "Sie wollen etwas erleben, sind aber knapp bei Kasse? Work and Travel ist die Lösung für Sie. Erleben Sie die norwegische Kultur hautnah, während Sie zusammen mit Kollegen auf der Bohrinsel Troll A, auch als Sea Troll bekannt, vor der Küste Norwegens Erdgas fördern.", "Ausschließliche Wirtschaftszone Norwegens der Nordsee", 60.01f),
 		new Reiseziel(),
+	};
+
+	public static final Kunde[] kunden = {
+		new Kunde("Niklas", "Heuke", "niklas@umbrella.tours", "niklas", false),
+		new Kunde("Jannik", "Schmöle", "jannik@umbrella.tours", "jannik", false),
+		new Kunde("Felix", "Schorlemer", "felix@umbrella.tours", "felix", false),
+		new Kunde("Jendrik", "Schulze", "jendrik@umbrella.tours", "jendrik", false)
 	};
 }

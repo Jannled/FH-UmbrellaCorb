@@ -40,6 +40,7 @@
 				<td th:text="${reise.bewertung}"></td>
 				<td>
 					<form th:action="@{/reise_buchen}" method="POST">
+						<input type="hidden" name="reiseID" th:value="${reise.ID}">
 						<input type="submit" value="Hier reise Buchen">
 					</form>
 				</td>
