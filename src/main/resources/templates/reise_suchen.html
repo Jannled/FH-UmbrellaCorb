@@ -3,53 +3,56 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-	<title>Buchung</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>Buchung</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/header.css">
+    <link rel="stylesheet" type="text/css" href="css/nav.css">
+    <link rel="stylesheet" type="text/css" href="css/footer.css">
 </head>
 
 <body>
 
-	<div id="header">
-		<header th:insert="header :: myheader">
-		</header>
-		<h1 class="siteName">Buchen</h1>
-	</div>
-	<nav class="navi" th:insert="nav :: mynav">
-	</nav>
+    <div id="header">
+        <header th:insert="header :: myheader">
+        </header>
+        <h1 class="siteName">Buchen</h1>
+    </div>
+    <nav class="navi" th:insert="nav :: mynav">
+    </nav>
 
-	<h2>Reisen</h2>
-	<table id="tabelle">
-		<thead>
-			<tr>
-				<th>Titel</th>
-				<th>Beschreibung</th>
-				<th>Ort</th>
-				<th>Preis</th>
-				<th>Bewertung</th>
-				<!--<th>Löschen</th>-->
-			</tr>
-		</thead>
-		<tbody>
-			<tr th:each="reise : ${reisen}" title="Klicken sie die Reise an, um sie zu buchen">
-				<td th:text="${reise.titel}"></td>
-				<td th:text="${reise.beschreibung}"></td>
-				<td th:text="${reise.ort}"></td>
-				<td th:text="${reise.preis} + '€'"></td>
-				<td th:text="${reise.bewertung}"></td>
-				<td>
-					<form th:action="@{/reise_buchen}" method="POST">
-						<input type="hidden" name="reiseID" th:value="${reise.ID}">
-						<input type="submit" value="Hier reise Buchen">
-					</form>
-				</td>
-			</tr>
-		</tbody>
-	</table>
+    <h2>Reisen</h2>
+    <table id="tabelle">
+        <thead>
+            <tr>
+                <th>Titel</th>
+                <th>Beschreibung</th>
+                <th>Ort</th>
+                <th>Preis</th>
+                <th>Bewertung</th>
+                <!--<th>Löschen</th>-->
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="reise : ${reisen}" title="Klicken sie die Reise an, um sie zu buchen">
+                <td th:text="${reise.titel}"></td>
+                <td th:text="${reise.beschreibung}"></td>
+                <td th:text="${reise.ort}"></td>
+                <td th:text="${reise.preis} + '€'"></td>
+                <td th:text="${reise.bewertung}"></td>
+                <td>
+                    <form th:action="@{/reise_buchen}" method="POST">
+                        <input type="hidden" name="reiseID" th:value="${reise.ID}">
+                        <input type="submit" value="Hier reise Buchen">
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 
-	<footer th:insert="footer :: myFooter">
-	</footer>
+    <footer th:insert="footer :: myFooter">
+    </footer>
 </body>
 
 </html>
