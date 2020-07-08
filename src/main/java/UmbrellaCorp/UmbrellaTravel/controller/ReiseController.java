@@ -71,6 +71,7 @@ public class ReiseController
 	@GetMapping("reise_suchen")
 	public String suchenRequest(Model model, Principal principal)
 	{
+		//TODO Befüllt SQL mit Testeinträgen
 		if(reiseRepository.count() < 1)
 			reiseRepository.saveAll(Arrays.asList(Reiseliste.reisen));
 

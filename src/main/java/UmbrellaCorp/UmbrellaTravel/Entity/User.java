@@ -11,13 +11,19 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Entity
-public class User implements UserDetails {
+public class User implements UserDetails 
+{
 	private static final long serialVersionUID = 1L;
+
+	@Autowired
+	PasswordEncoder passwordEncoder;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -85,6 +91,14 @@ public class User implements UserDetails {
 
 	public void setPassword(String passwort) {
 		this.password = passwort;
+	}
+
+	public void encryptPassword(String passwort) {
+		setPassword(passwordEncoder.encode(passwort));
+	}
+
+	public void encryptPassword() {
+		setPassword(passwordEncoder.encode(getPassword()));
 	}
 
 	@Override
